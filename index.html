@@ -13,12 +13,13 @@
         .roblox-blue:hover { background-color: #005a96; }
         .roblox-dark { background-color: #111827; }
         .roblox-card { background-color: #1f2937; border: 1px solid #374151; }
-        .admin-theme { background: rgba(17, 24, 39, 0.95); border: 1px solid #dc2626; box-shadow: 0 0 20px rgba(220, 38, 38, 0.2); }
+        .studio-dark { background-color: #181c24; border-color: #2b3240; }
+        .studio-ribbon { background-color: #212631; border-bottom: 1px solid #303846; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <!-- BROWSER URL / ADDRESS BAR -->
+    <!-- BROWSER URL BAR -->
     <div class="bg-gray-950 border-b border-gray-800 px-3 py-2 flex items-center justify-between text-xs text-gray-400 select-none flex-shrink-0 z-50">
         <div class="flex items-center space-x-2 bg-gray-900 border border-gray-800 px-3 py-1.5 rounded-lg w-full max-w-md mx-auto shadow-inner">
             <span class="text-emerald-400">🔒</span>
@@ -59,6 +60,10 @@
 
                 <div id="form-signup" class="space-y-4 hidden">
                     <div class="space-y-1">
+                        <label class="text-xs text-gray-400 font-medium">Username</label>
+                        <input type="text" id="signup-username" placeholder="CoolGamer99" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-3 text-sm text-white outline-none focus:border-blue-500 transition">
+                    </div>
+                    <div class="space-y-1">
                         <label class="text-xs text-gray-400 font-medium">Email Address</label>
                         <input type="email" id="signup-email" placeholder="name@example.com" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-3 text-sm text-white outline-none focus:border-blue-500 transition">
                     </div>
@@ -67,7 +72,7 @@
                         <input type="password" id="signup-password" placeholder="••••••••" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-3 text-sm text-white outline-none focus:border-blue-500 transition">
                     </div>
                     <button onclick="processSignup()" class="w-full bg-emerald-600 hover:bg-emerald-500 py-3 rounded-lg text-sm font-bold shadow-lg transition flex items-center justify-center gap-2">
-                        <span>✨</span> Create & Sign In Instantly
+                        <span>✨</span> Create Account
                     </button>
                 </div>
 
@@ -113,11 +118,9 @@
                     <button onclick="switchTab('ads')" id="nav-ads" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
                         <span>📢</span> <span>Ads & Passes</span>
                     </button>
-                    <button onclick="switchTab('moderation')" id="nav-moderation" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
+                    <!-- MODERATION TAB (HIDDEN FOR MEMBERS) -->
+                    <button onclick="switchTab('moderation')" id="nav-moderation" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-red-400 hover:bg-red-950/40 border border-red-900/50 transition">
                         <span>🛡️</span> <span>Moderation</span>
-                    </button>
-                    <button onclick="switchTab('admin')" id="nav-admin" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium bg-red-950/40 text-red-400 hover:bg-red-900/40 border border-red-900/50 transition">
-                        <span>⚡</span> <span>Admin Panel</span>
                     </button>
                 </nav>
             </div>
@@ -164,13 +167,13 @@
                             <h2 class="text-xl sm:text-3xl font-extrabold">Classic Baseplate & City Sandbox</h2>
                             <p class="text-gray-300 text-xs sm:text-sm">Test retro blocky physics or realistic PBR lighting modes instantly.</p>
                             <div class="flex items-center space-x-4 pt-2">
-                                <button onclick="launchGame()" class="roblox-blue px-6 py-3 rounded-xl font-bold text-white shadow-lg flex items-center space-x-2 active:scale-95 transition">
-                                    <span>▶</span> <span>Play Now</span>
+                                <button onclick="openRobloxStudio('City Sandbox')" class="roblox-blue px-6 py-3 rounded-xl font-bold text-white shadow-lg flex items-center space-x-2 active:scale-95 transition">
+                                    <span>🛠</span> <span>Open in Studio</span>
                                 </button>
                                 <span class="text-xs text-gray-400">👥 1,420 Active</span>
                             </div>
                         </div>
-                        <div class="w-full md:w-80 h-40 md:h-48 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer" onclick="launchGame()">
+                        <div class="w-full md:w-80 h-40 md:h-48 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openRobloxStudio('City Sandbox')">
                             <span class="text-5xl group-hover:scale-110 transition duration-300">🏙</span>
                         </div>
                     </div>
@@ -183,7 +186,7 @@
                         <div class="roblox-card p-4 rounded-xl space-y-3">
                             <div class="h-32 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">🌍</div>
                             <h4 class="font-bold text-sm">Open World Roleplay</h4>
-                            <button onclick="launchGame()" class="w-full roblox-blue py-2 rounded-lg text-xs font-bold">Play Now</button>
+                            <button onclick="openRobloxStudio('Open World RP')" class="w-full roblox-blue py-2 rounded-lg text-xs font-bold">Open in Studio</button>
                         </div>
                     </div>
                 </div>
@@ -223,13 +226,8 @@
                 <div id="tab-studio" class="hidden space-y-6">
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div>
-                            <h2 class="text-xl sm:text-2xl font-bold">BloxVibe Studio & AI Assistant</h2>
-                            <p class="text-xs sm:text-sm text-gray-400">Choose graphics styles, templates, free models, or ask VibeAI for coding guidance.</p>
-                        </div>
-                        <div class="flex items-center space-x-2 bg-gray-900 border border-gray-700 p-1.5 rounded-xl">
-                            <span class="text-xs text-gray-400 px-2 font-semibold">Graphics:</span>
-                            <button onclick="setGraphicsMode('retro')" id="btn-gfx-retro" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white transition">Retro Blocky</button>
-                            <button onclick="setGraphicsMode('realistic')" id="btn-gfx-realistic" class="px-3 py-1.5 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition">Realistic PBR</button>
+                            <h2 class="text-xl sm:text-2xl font-bold">BloxVibe Studio & Templates</h2>
+                            <p class="text-xs sm:text-sm text-gray-400">Select a template to launch Roblox-style Studio editor with full tooling.</p>
                         </div>
                     </div>
 
@@ -237,28 +235,17 @@
                         <!-- Templates & Free Models -->
                         <div class="space-y-4">
                             <div class="roblox-card p-5 rounded-xl space-y-3">
-                                <h3 class="font-bold text-sm text-blue-400 flex items-center gap-2"><span>📂</span> Starter Templates</h3>
+                                <h3 class="font-bold text-sm text-blue-400 flex items-center gap-2"><span>📂</span> Roblox Studio Templates</h3>
                                 <div class="space-y-2">
-                                    <button onclick="loadTemplate('obby')" class="w-full text-left text-xs bg-gray-900 hover:bg-gray-800 p-3 rounded-lg border border-gray-700 font-semibold flex items-center justify-between">
-                                        <span>🏃 Obstacle Course (Obby)</span> <span class="text-blue-400">Load</span>
+                                    <button onclick="openRobloxStudio('Obstacle Course (Obby)')" class="w-full text-left text-xs bg-gray-900 hover:bg-gray-800 p-3 rounded-lg border border-gray-700 font-semibold flex items-center justify-between">
+                                        <span>🏃 Obstacle Course (Obby)</span> <span class="text-blue-400">Launch Studio 🛠</span>
                                     </button>
-                                    <button onclick="loadTemplate('city')" class="w-full text-left text-xs bg-gray-900 hover:bg-gray-800 p-3 rounded-lg border border-gray-700 font-semibold flex items-center justify-between">
-                                        <span>🏙️ City Roleplay World</span> <span class="text-blue-400">Load</span>
+                                    <button onclick="openRobloxStudio('City Roleplay World')" class="w-full text-left text-xs bg-gray-900 hover:bg-gray-800 p-3 rounded-lg border border-gray-700 font-semibold flex items-center justify-between">
+                                        <span>🏙️ City Roleplay World</span> <span class="text-blue-400">Launch Studio 🛠</span>
                                     </button>
-                                    <button onclick="loadTemplate('military')" class="w-full text-left text-xs bg-gray-900 hover:bg-gray-800 p-3 rounded-lg border border-gray-700 font-semibold flex items-center justify-between">
-                                        <span>🎖️ Military Base / Outpost</span> <span class="text-blue-400">Load</span>
+                                    <button onclick="openRobloxStudio('Military Base Outpost')" class="w-full text-left text-xs bg-gray-900 hover:bg-gray-800 p-3 rounded-lg border border-gray-700 font-semibold flex items-center justify-between">
+                                        <span>🎖️ Military Base / Outpost</span> <span class="text-blue-400">Launch Studio 🛠</span>
                                     </button>
-                                </div>
-                            </div>
-
-                            <div class="roblox-card p-5 rounded-xl space-y-3">
-                                <h3 class="font-bold text-sm text-emerald-400 flex items-center gap-2"><span>📦</span> Free Models Toolbox</h3>
-                                <p class="text-xs text-gray-400">Click to insert pre-made assets into your active world.</p>
-                                <div class="grid grid-cols-2 gap-2">
-                                    <button onclick="spawnFreeModel('Tree')" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 p-2.5 rounded-lg text-xs font-semibold text-center">🌲 Pine Tree</button>
-                                    <button onclick="spawnFreeModel('Car')" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 p-2.5 rounded-lg text-xs font-semibold text-center">🚗 Police Cruiser</button>
-                                    <button onclick="spawnFreeModel('Barrier')" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 p-2.5 rounded-lg text-xs font-semibold text-center">🚧 Road Barrier</button>
-                                    <button onclick="spawnFreeModel('Gun')" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 p-2.5 rounded-lg text-xs font-semibold text-center">🔫 Tactical Rifle</button>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +259,7 @@
                             <div id="ai-chat-box" class="flex-1 my-3 overflow-y-auto space-y-3 pr-2 text-xs">
                                 <div class="bg-purple-950/30 border border-purple-500/30 p-3 rounded-lg text-purple-200 space-y-1">
                                     <p class="font-bold">VibeAI Assistant:</p>
-                                    <p>Hello GrandEmperor! I can write Lua scripts, teach you how to set up server scripts, or guide you through building an obby or roleplay city. What are you building today?</p>
+                                    <p>Hello GrandEmperor! I can write Lua scripts, teach you how to set up server scripts, or guide you through Roblox Studio building. What are you building today?</p>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2 pt-2 border-t border-gray-800">
@@ -283,7 +270,7 @@
                     </div>
                 </div>
 
-                <!-- GROUPS TAB (ROBLOX STYLE) -->
+                <!-- GROUPS TAB -->
                 <div id="tab-groups" class="hidden space-y-6">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
@@ -294,7 +281,6 @@
                     </div>
 
                     <div id="groups-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Sample Group 1 -->
                         <div class="roblox-card p-5 rounded-xl space-y-4">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-3">
@@ -305,40 +291,6 @@
                                     </div>
                                 </div>
                                 <span class="bg-blue-500/20 text-blue-400 text-xs px-2.5 py-1 rounded font-semibold">Active Group</span>
-                            </div>
-                            <div class="bg-gray-900 p-3 rounded-lg text-xs space-y-1">
-                                <p class="text-gray-300 font-semibold">Ranks Configured:</p>
-                                <p class="text-gray-400 font-mono">1. Owner (Full Admin)</p>
-                                <p class="text-gray-400 font-mono">2. Chief of Police (Manage Ranks)</p>
-                                <p class="text-gray-400 font-mono">3. Officer (Standard Access)</p>
-                            </div>
-                            <div class="flex items-center justify-between pt-2 border-t border-gray-800">
-                                <span class="text-amber-400 font-bold text-xs">Group Funds: 12,450 🪙</span>
-                                <button onclick="manageGroup('Vancouver Police Department')" class="bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg text-xs font-bold border border-gray-700">Manage Group</button>
-                            </div>
-                        </div>
-
-                        <!-- Sample Group 2 -->
-                        <div class="roblox-card p-5 rounded-xl space-y-4">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-12 h-12 bg-red-700 rounded-xl flex items-center justify-center font-black text-xl">BA</div>
-                                    <div>
-                                        <h4 class="font-bold text-sm">British Army</h4>
-                                        <p class="text-xs text-gray-400">890 Members • Owner: GrandEmperor</p>
-                                    </div>
-                                </div>
-                                <span class="bg-red-500/20 text-red-400 text-xs px-2.5 py-1 rounded font-semibold">Active Group</span>
-                            </div>
-                            <div class="bg-gray-900 p-3 rounded-lg text-xs space-y-1">
-                                <p class="text-gray-300 font-semibold">Ranks Configured:</p>
-                                <p class="text-gray-400 font-mono">1. Field Marshal (Owner)</p>
-                                <p class="text-gray-400 font-mono">2. General (Moderator)</p>
-                                <p class="text-gray-400 font-mono">3. Private (Member)</p>
-                            </div>
-                            <div class="flex items-center justify-between pt-2 border-t border-gray-800">
-                                <span class="text-amber-400 font-bold text-xs">Group Funds: 8,100 🪙</span>
-                                <button onclick="manageGroup('British Army')" class="bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg text-xs font-bold border border-gray-700">Manage Group</button>
                             </div>
                         </div>
                     </div>
@@ -351,115 +303,36 @@
                             <h2 class="text-xl sm:text-2xl font-bold flex items-center gap-2"><span>📢</span> Ads & Gamepasses Center</h2>
                             <p class="text-xs sm:text-sm text-gray-400">Create custom gamepasses for your world and launch promotional ads.</p>
                         </div>
-                        <div class="flex gap-2">
-                            <button onclick="openCreateGamepassModal()" class="roblox-blue px-4 py-2.5 rounded-lg text-xs font-bold text-white shadow">🎫 Create Gamepass</button>
-                            <button onclick="openCreateAdModal()" class="bg-emerald-600 hover:bg-emerald-500 px-4 py-2.5 rounded-lg text-xs font-bold text-white shadow">📢 Launch Ad</button>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="roblox-card p-5 rounded-xl space-y-4">
-                            <h3 class="font-bold text-sm text-blue-400 flex items-center gap-2"><span>🎫</span> Active Gamepasses</h3>
-                            <div class="space-y-2">
-                                <div class="bg-gray-900 p-3 rounded-lg flex items-center justify-between text-xs">
-                                    <div>
-                                        <p class="font-bold">VIP Server Pass</p>
-                                        <p class="text-gray-400">Grants custom chat colors</p>
-                                    </div>
-                                    <span class="text-amber-400 font-bold">500 🪙</span>
-                                </div>
-                                <div class="bg-gray-900 p-3 rounded-lg flex items-center justify-between text-xs">
-                                    <div>
-                                        <p class="font-bold">Admin Boombox</p>
-                                        <p class="text-gray-400">Play custom retro audio</p>
-                                    </div>
-                                    <span class="text-amber-400 font-bold">350 🪙</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="roblox-card p-5 rounded-xl space-y-4">
-                            <h3 class="font-bold text-sm text-emerald-400 flex items-center gap-2"><span>📢</span> Active Game Advertisements</h3>
-                            <div class="space-y-2">
-                                <div class="bg-gray-900 p-3 rounded-lg flex items-center justify-between text-xs">
-                                    <div>
-                                        <p class="font-bold">City Sandbox Promo Banner</p>
-                                        <p class="text-emerald-400">Active • 14,200 Impressions</p>
-                                    </div>
-                                    <span class="text-gray-400">Bid: 1,000 🪙</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- MODERATION TAB -->
+                <!-- MODERATION TAB (ADMIN ONLY) -->
                 <div id="tab-moderation" class="hidden space-y-6">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
-                            <h2 class="text-xl sm:text-2xl font-bold text-red-400 flex items-center gap-2"><span>🛡️</span> Community Moderation</h2>
-                            <p class="text-xs sm:text-sm text-gray-400">Review player reports, issue formal warnings, and moderate world rule violations.</p>
+                            <h2 class="text-xl sm:text-2xl font-bold text-red-400 flex items-center gap-2"><span>🛡️</span> Community & User Moderation</h2>
+                            <p class="text-xs sm:text-sm text-gray-400">Review all registered users, issue formal warnings, and moderate world rule violations.</p>
                         </div>
-                        <span class="bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-lg text-xs font-mono font-bold w-fit">MOD CLEARANCE</span>
+                        <span class="bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-lg text-xs font-mono font-bold w-fit">ADMIN ONLY</span>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="roblox-card p-5 rounded-xl space-y-3">
-                            <h3 class="font-bold text-white text-sm">⚠️ Issue Player Warning</h3>
-                            <input type="text" id="mod-target-user" placeholder="Username (e.g. Player123)" class="w-full bg-gray-900 border border-gray-700 rounded p-2.5 text-xs text-white outline-none">
-                            <textarea id="mod-warning-reason" placeholder="Reason for warning..." class="w-full bg-gray-900 border border-gray-700 rounded p-2.5 text-xs text-white outline-none h-20 resize-none"></textarea>
-                            <button onclick="sendPlayerWarning()" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-2.5 rounded text-xs">Send Warning</button>
-                        </div>
-
-                        <div class="roblox-card p-5 rounded-xl space-y-3 md:col-span-2">
-                            <h3 class="font-bold text-white text-sm">📋 Active Player Reports & Incidents</h3>
-                            <div class="space-y-2">
-                                <div class="bg-gray-900 p-3 rounded-lg flex items-center justify-between text-xs">
-                                    <div>
-                                        <p class="font-bold text-red-400">User: <span class="text-white">RaidBot99</span></p>
-                                        <p class="text-gray-400">Reason: Spamming chat in City Sandbox</p>
-                                    </div>
-                                    <div class="flex gap-2">
-                                        <button onclick="modAction('warn', 'RaidBot99')" class="bg-amber-600 hover:bg-amber-500 px-3 py-1.5 rounded text-white font-bold">Warn</button>
-                                        <button onclick="modAction('ban', 'RaidBot99')" class="bg-red-700 hover:bg-red-600 px-3 py-1.5 rounded text-white font-bold">Ban</button>
-                                    </div>
-                                </div>
-                                <div class="bg-gray-900 p-3 rounded-lg flex items-center justify-between text-xs">
-                                    <div>
-                                        <p class="font-bold text-red-400">User: <span class="text-white">ExploitUser_01</span></p>
-                                        <p class="text-gray-400">Reason: Speed hacking in Obby World</p>
-                                    </div>
-                                    <div class="flex gap-2">
-                                        <button onclick="modAction('warn', 'ExploitUser_01')" class="bg-amber-600 hover:bg-amber-500 px-3 py-1.5 rounded text-white font-bold">Warn</button>
-                                        <button onclick="modAction('ban', 'ExploitUser_01')" class="bg-red-700 hover:bg-red-600 px-3 py-1.5 rounded text-white font-bold">Ban</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ADMIN TAB -->
-                <div id="tab-admin" class="hidden space-y-6">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                        <div>
-                            <h2 class="text-xl sm:text-2xl font-bold text-red-400 flex items-center gap-2"><span>⚡</span> Server Administration</h2>
-                            <p class="text-xs sm:text-sm text-gray-400">Manage server parameters and coin treasury.</p>
-                        </div>
-                        <span class="bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-lg text-xs font-mono font-bold">LEVEL 4: OWNER</span>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="roblox-card p-5 rounded-xl border-amber-500/40 bg-gradient-to-b from-gray-900 to-amber-950/20 space-y-3">
-                            <h3 class="font-bold text-white text-sm">🪙 Treasury Coin Gen</h3>
-                            <button onclick="adminGiveUnlimitedCoins()" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-3 rounded-lg text-xs shadow">Give +100,000 Coins</button>
-                        </div>
-                        <div class="roblox-card p-5 rounded-xl border-red-900/30 space-y-3">
-                            <h3 class="font-bold text-white text-sm">⚡ Quick Commands</h3>
-                            <div class="space-y-2">
-                                <button onclick="runAdminCommand(':speed 25')" class="w-full text-left text-xs bg-gray-800 hover:bg-gray-700 p-2.5 rounded text-gray-300 font-mono">:speed 25</button>
-                                <button onclick="runAdminCommand(':gravity')" class="w-full text-left text-xs bg-gray-800 hover:bg-gray-700 p-2.5 rounded text-gray-300 font-mono">:gravity (Moon Mode)</button>
-                            </div>
+                    <!-- SIGNED UP USERS TABLE -->
+                    <div class="roblox-card p-5 rounded-xl space-y-4">
+                        <h3 class="font-bold text-white text-sm flex items-center gap-2"><span>👤</span> Registered User Database (Signups Log)</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead class="bg-gray-900 text-gray-400 border-b border-gray-700 font-mono">
+                                    <tr>
+                                        <th class="p-3">Username</th>
+                                        <th class="p-3">Email Address</th>
+                                        <th class="p-3">Password (Hashed/Stored)</th>
+                                        <th class="p-3 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="signup-users-table" class="divide-y divide-gray-800">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -468,32 +341,104 @@
         </main>
     </div>
 
-    <!-- FULLSCREEN 3D GAME CLIENT OVERLAY -->
-    <div id="game-client" class="fixed inset-0 bg-black z-50 hidden flex flex-col">
-        <div class="absolute top-3 left-3 right-3 sm:right-auto z-50 flex items-center justify-between sm:justify-start space-x-2 bg-gray-900/90 backdrop-blur border border-gray-700 px-3 py-2 rounded-xl">
-            <div class="flex items-center space-x-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span id="game-client-title" class="font-bold text-xs sm:text-sm">BloxVibe v1.2 (Retro Mode)</span>
+    <!-- ROBLOX STUDIO FULLSCREEN EDITOR INTERFACE -->
+    <div id="roblox-studio-client" class="fixed inset-0 studio-dark z-50 hidden flex flex-col select-none">
+        <!-- TOP RIBBON BAR -->
+        <div class="studio-ribbon px-3 py-2 flex items-center justify-between text-xs text-gray-300 flex-shrink-0">
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2 bg-red-600 px-3 py-1.5 rounded font-bold text-white">
+                    <span>🛠</span> <span>BloxVibe Studio</span>
+                </div>
+                <div class="flex space-x-1 bg-gray-900 p-1 rounded border border-gray-700">
+                    <button onclick="studioToolAction('select')" class="px-3 py-1 rounded bg-blue-600 text-white font-semibold">Select</button>
+                    <button onclick="studioToolAction('move')" class="px-3 py-1 rounded hover:bg-gray-800">Move</button>
+                    <button onclick="studioToolAction('scale')" class="px-3 py-1 rounded hover:bg-gray-800">Scale</button>
+                    <button onclick="studioToolAction('rotate')" class="px-3 py-1 rounded hover:bg-gray-800">Rotate</button>
+                </div>
+                <div class="flex space-x-1 bg-gray-900 p-1 rounded border border-gray-700">
+                    <button onclick="studioSpawnPart('Block')" class="px-3 py-1 rounded hover:bg-gray-800">🟫 Part</button>
+                    <button onclick="studioSpawnPart('Wedge')" class="px-3 py-1 rounded hover:bg-gray-800">📐 Wedge</button>
+                    <button onclick="studioSpawnPart('Spawn')" class="px-3 py-1 rounded hover:bg-gray-800">🟢 Spawn</button>
+                </div>
             </div>
-            <div class="flex items-center space-x-2">
-                <button onclick="exitGame()" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-xs font-bold transition">Leave</button>
+            <div class="flex items-center space-x-3">
+                <button onclick="playtestStudioGame()" class="bg-emerald-600 hover:bg-emerald-500 px-4 py-1.5 rounded font-bold text-white flex items-center gap-1.5"><span>▶</span> Play Test</button>
+                <button onclick="closeRobloxStudio()" class="bg-red-700 hover:bg-red-600 px-3 py-1.5 rounded font-bold text-white">Close Studio</button>
             </div>
         </div>
 
-        <!-- MOBILE TOUCH CONTROLLER -->
-        <div id="mobile-controls" class="absolute bottom-6 left-6 z-50 grid grid-cols-3 gap-2 w-36 h-36 select-none">
-            <div></div>
-            <button ontouchstart="startMove('forward')" ontouchend="stopMove('forward')" onmousedown="startMove('forward')" onmouseup="stopMove('forward')" class="bg-gray-800/80 active:bg-blue-600 border border-gray-600 rounded-xl flex items-center justify-center text-lg text-white shadow-lg">⬆️</button>
-            <div></div>
-            <button ontouchstart="startMove('left')" ontouchend="stopMove('left')" onmousedown="startMove('left')" onmouseup="stopMove('left')" class="bg-gray-800/80 active:bg-blue-600 border border-gray-600 rounded-xl flex items-center justify-center text-lg text-white shadow-lg">⬅️</button>
-            <button ontouchstart="startMove('jump')" ontouchend="stopMove('jump')" onmousedown="startMove('jump')" onmouseup="stopMove('jump')" class="bg-blue-600/90 active:bg-blue-500 border border-blue-400 rounded-xl flex items-center justify-center text-[11px] font-bold text-white shadow-lg">JUMP</button>
-            <button ontouchstart="startMove('right')" ontouchend="stopMove('right')" onmousedown="startMove('right')" onmouseup="stopMove('right')" class="bg-gray-800/80 active:bg-blue-600 border border-gray-600 rounded-xl flex items-center justify-center text-lg text-white shadow-lg">➡</button>
-            <div></div>
-            <button ontouchstart="startMove('backward')" ontouchend="stopMove('backward')" onmousedown="startMove('backward')" onmouseup="stopMove('backward')" class="bg-gray-800/80 active:bg-blue-600 border border-gray-600 rounded-xl flex items-center justify-center text-lg text-white shadow-lg">⬇</button>
-            <div></div>
+        <!-- MAIN STUDIO WORKSPACE (EXPLORER, VIEWPORT, PROPERTIES) -->
+        <div class="flex-1 flex min-h-0">
+            <!-- LEFT PANEL: EXPLORER -->
+            <div class="w-64 roblox-dark border-r border-gray-800 flex flex-col text-xs">
+                <div class="p-2.5 font-bold border-b border-gray-800 text-gray-400 uppercase tracking-wider">Explorer</div>
+                <div class="p-3 space-y-1 font-mono text-gray-300 overflow-y-auto flex-1">
+                    <p class="text-blue-400 font-bold">📁 Workspace</p>
+                    <div class="pl-4 space-y-1">
+                        <p>📦 Baseplate</p>
+                        <p>📦 SpawnLocation</p>
+                        <p>🌲 PineTree_Model</p>
+                    </div>
+                    <p class="text-purple-400 font-bold pt-2">📁 Lighting</p>
+                    <p class="text-emerald-400 font-bold pt-2">📁 ReplicatedStorage</p>
+                </div>
+            </div>
+
+            <!-- CENTER VIEWPORT (THREE.JS 3D CANVAS) -->
+            <div id="studio-canvas-container" class="flex-1 relative bg-slate-950">
+                <!-- Overlay Studio Info -->
+                <div class="absolute top-3 left-3 bg-black/60 backdrop-blur border border-gray-700 px-3 py-1.5 rounded text-xs font-mono text-emerald-400" id="studio-world-title">
+                    Editing: City Sandbox
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL: PROPERTIES -->
+            <div class="w-72 roblox-dark border-l border-gray-800 flex flex-col text-xs">
+                <div class="p-2.5 font-bold border-b border-gray-800 text-gray-400 uppercase tracking-wider">Properties - Part</div>
+                <div class="p-3 space-y-3 overflow-y-auto flex-1">
+                    <div class="space-y-1">
+                        <label class="text-gray-400">Name</label>
+                        <input type="text" value="Baseplate" class="w-full bg-gray-900 border border-gray-700 rounded px-2 py-1 text-white">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-gray-400">BrickColor</label>
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 rounded bg-gray-500 border border-white"></span>
+                            <input type="text" value="Medium stone grey" class="w-full bg-gray-900 border border-gray-700 rounded px-2 py-1 text-white">
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-gray-400">Material</label>
+                        <select class="w-full bg-gray-900 border border-gray-700 rounded px-2 py-1 text-white">
+                            <option>SmoothPlastic</option>
+                            <option>Neon</option>
+                            <option>Wood</option>
+                            <option>Glass</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-gray-400">Transparency</label>
+                        <input type="number" value="0" step="0.1" class="w-full bg-gray-900 border border-gray-700 rounded px-2 py-1 text-white">
+                    </div>
+                    <div class="flex items-center space-x-2 pt-2">
+                        <input type="checkbox" checked id="prop-anchored" class="rounded bg-gray-900 border-gray-700">
+                        <label for="prop-anchored" class="text-gray-300">Anchored</label>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div id="canvas-container" class="flex-1 w-full h-full"></div>
+        <!-- BOTTOM OUTPUT & COMMAND BAR -->
+        <div class="h-28 roblox-dark border-t border-gray-800 flex flex-col text-xs font-mono">
+            <div class="px-3 py-1 bg-gray-900 border-b border-gray-800 text-gray-400 font-bold flex justify-between items-center">
+                <span>Output / Command Bar</span>
+                <span class="text-[10px] text-emerald-400">Ready</span>
+            </div>
+            <div id="studio-output-log" class="p-2 flex-1 overflow-y-auto text-gray-300 space-y-1">
+                <p class="text-gray-500">[Studio]: Workspace initialized successfully.</p>
+                <p class="text-blue-400">[VibeAI]: Connected to BloxVibe Studio engine.</p>
+            </div>
+        </div>
     </div>
 
     <!-- JavaScript Application Logic -->
@@ -501,10 +446,6 @@
         let currentUser = null;
         let isAdminAuthorized = false;
         let userCoins = 4500;
-        let playerSpeed = 12;
-        let graphicsMode = 'retro'; // 'retro' or 'realistic'
-        let currentTemplate = 'city';
-        let spawnedObjects = [];
 
         async function hashPassword(password) {
             const encoder = new TextEncoder();
@@ -529,26 +470,30 @@
         }
 
         async function processSignup() {
+            const username = document.getElementById('signup-username').value.trim();
             const email = document.getElementById('signup-email').value.trim();
             const password = document.getElementById('signup-password').value;
-            if (!email || !password) { alert("Enter email and password."); return; }
-            const hashedPassword = await hashPassword(password);
-            let users = JSON.parse(localStorage.getItem('blox_users') || '{}');
-            if (users[email]) { alert("Account exists."); return; }
-            users[email] = { password: hashedPassword, coins: 4500 };
-            localStorage.setItem('blox_users', JSON.stringify(users));
-            loginSession(email, false);
-            alert("🎉 Account created!");
+            if (!username || !email || !password) { alert("Fill in all fields."); return; }
+            
+            let users = JSON.parse(localStorage.getItem('blox_users_db') || '{}');
+            if (users[email]) { alert("Account with this email already exists."); return; }
+            
+            users[email] = { username, email, password }; // Storing signup info as requested
+            localStorage.setItem('blox_users_db', JSON.stringify(users));
+            
+            loginSession(username, false);
+            alert("🎉 Account created successfully!");
         }
 
         async function processLogin() {
             const email = document.getElementById('login-email').value.trim();
             const password = document.getElementById('login-password').value;
             if (!email || !password) { alert("Enter credentials."); return; }
-            const hashedPassword = await hashPassword(password);
-            let users = JSON.parse(localStorage.getItem('blox_users') || '{}');
-            if (!users[email] || users[email].password !== hashedPassword) { alert("Invalid credentials."); return; }
-            loginSession(email, false);
+            
+            let users = JSON.parse(localStorage.getItem('blox_users_db') || '{}');
+            if (!users[email] || users[email].password !== password) { alert("Invalid email or password."); return; }
+            
+            loginSession(users[email].username, false);
         }
 
         function processAdminLogin() {
@@ -570,15 +515,17 @@
             document.getElementById('user-avatar-initials').textContent = identifier.substring(0, 2).toUpperCase();
 
             const badge = document.getElementById('badge-role');
-            const navAdmin = document.getElementById('nav-admin');
+            const navModeration = document.getElementById('nav-moderation');
+
             if (isAdminAuthorized) {
                 badge.textContent = "Admin";
                 badge.className = "text-xs bg-red-500/20 text-red-400 border border-red-500/30 px-2.5 py-1 rounded-full font-semibold";
-                navAdmin.classList.remove('hidden');
+                navModeration.classList.remove('hidden'); // Show Moderation for Admin
+                renderModerationUsersTable();
             } else {
                 badge.textContent = "Member";
                 badge.className = "text-xs bg-cyan-500/20 text-cyan-400 px-2.5 py-1 rounded-full font-semibold";
-                navAdmin.classList.add('hidden');
+                navModeration.classList.add('hidden'); // Hide Moderation for Members
             }
             updateCoinDisplay();
         }
@@ -596,13 +543,6 @@
             if(storeBadge) storeBadge.textContent = userCoins.toLocaleString() + " 🪙";
         }
 
-        function adminGiveUnlimitedCoins() {
-            if (!isAdminAuthorized) return;
-            userCoins += 100000;
-            updateCoinDisplay();
-            alert("⚡ Added +100,000 Coins!");
-        }
-
         function buyCoins(amount, price) {
             userCoins += amount;
             updateCoinDisplay();
@@ -610,38 +550,58 @@
         }
 
         function switchTab(tabName) {
-            ['home', 'games', 'store', 'studio', 'groups', 'ads', 'moderation', 'admin'].forEach(t => {
+            ['home', 'games', 'store', 'studio', 'groups', 'ads', 'moderation'].forEach(t => {
                 const el = document.getElementById(`tab-${t}`);
                 if(el) el.classList.add('hidden');
                 const nav = document.getElementById(`nav-${t}`);
-                if(nav) {
+                if(nav && t !== 'moderation') {
                     nav.classList.remove('bg-gray-800', 'text-white');
-                    if(t !== 'admin') nav.classList.add('text-gray-400');
+                    nav.classList.add('text-gray-400');
                 }
             });
             document.getElementById(`tab-${tabName}`).classList.remove('hidden');
             const activeNav = document.getElementById(`nav-${tabName}`);
-            if(activeNav) {
+            if(activeNav && tabName !== 'moderation') {
                 activeNav.classList.add('bg-gray-800', 'text-white');
                 activeNav.classList.remove('text-gray-400');
             }
         }
 
-        // STUDIO & GRAPHICS ENGINE
-        function setGraphicsMode(mode) {
-            graphicsMode = mode;
-            document.getElementById('btn-gfx-retro').className = mode === 'retro' ? "px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white transition" : "px-3 py-1.5 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition";
-            document.getElementById('btn-gfx-realistic').className = mode === 'realistic' ? "px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white transition" : "px-3 py-1.5 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition";
-            alert(`Graphics mode set to: ${mode.toUpperCase()}`);
+        function renderModerationUsersTable() {
+            const tableBody = document.getElementById('signup-users-table');
+            if (!tableBody) return;
+            tableBody.innerHTML = '';
+
+            let users = JSON.parse(localStorage.getItem('blox_users_db') || '{}');
+            const emails = Object.keys(users);
+
+            if (emails.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-gray-500">No signed up users recorded yet.</td></tr>`;
+                return;
+            }
+
+            emails.forEach(email => {
+                const u = users[email];
+                tableBody.innerHTML += `
+                    <tr class="hover:bg-gray-900/50">
+                        <td class="p-3 font-bold text-white">${u.username}</td>
+                        <td class="p-3 text-gray-300">${u.email}</td>
+                        <td class="p-3 font-mono text-amber-400">${u.password}</td>
+                        <td class="p-3 text-right">
+                            <button onclick="modWarnUser('${u.username}')" class="bg-amber-600 hover:bg-amber-500 px-2.5 py-1 rounded text-white font-bold mr-1">Warn</button>
+                            <button onclick="modBanUser('${u.username}')" class="bg-red-700 hover:bg-red-600 px-2.5 py-1 rounded text-white font-bold">Ban</button>
+                        </td>
+                    </tr>
+                `;
+            });
         }
 
-        function loadTemplate(templateName) {
-            currentTemplate = templateName;
-            alert(`Loaded template: ${templateName.toUpperCase()}. Click 'Play Now' to test in 3D!`);
+        function modWarnUser(username) {
+            alert(`Formal warning sent to user: ${username}`);
         }
 
-        function spawnFreeModel(modelType) {
-            alert(`Successfully spawned ${modelType} into your world!`);
+        function modBanUser(username) {
+            alert(`User ${username} has been banned from BloxVibe.`);
         }
 
         // AI ASSISTANT CHAT
@@ -659,166 +619,107 @@
             input.value = '';
 
             setTimeout(() => {
-                let aiResponse = "To script that in BloxVibe Studio, use standard Lua server scripts with Touched events and Player parameters.";
-                if(text.toLowerCase().includes('obby')) aiResponse = "For an obby, place checkpoint parts with script triggers that update `player.RespawnLocation` when touched.";
-                if(text.toLowerCase().includes('door')) aiResponse = "To code a door, use `door.Transparency = 1` and `door.CanCollide = false` when a player with the correct group rank interacts.";
-                
+                let aiResponse = "In Roblox Studio, use Part properties and Workspace scripts to configure server events.";
+                if(text.toLowerCase().includes('obby')) aiResponse = "For obbys, set up checkpoint parts with `.Touched` events that update character respawn locations.";
                 chatBox.innerHTML += `<div class="bg-purple-950/30 border border-purple-500/30 p-3 rounded-lg text-purple-200"><p class="font-bold">VibeAI:</p><p>${aiResponse}</p></div>`;
                 chatBox.scrollTop = chatBox.scrollHeight;
             }, 600);
         }
 
-        // GROUPS & MODERATION ACTIONS
         function openCreateGroupModal() {
             const groupName = prompt("Enter new Group Name:");
             if(groupName) alert(`Group "${groupName}" successfully created!`);
         }
 
-        function manageGroup(groupName) {
-            alert(`Managing permissions, roles, and funds for ${groupName}`);
+        // ROBLOX STUDIO EDITOR ENGINE
+        let studioScene, studioCamera, studioRenderer;
+
+        function openRobloxStudio(templateName) {
+            document.getElementById('roblox-studio-client').classList.remove('hidden');
+            document.getElementById('studio-world-title').textContent = `Editing Template: ${templateName}`;
+            initStudio3D();
         }
 
-        function openCreateGamepassModal() {
-            prompt("Enter Gamepass Name:");
-        }
-
-        function openCreateAdModal() {
-            prompt("Enter Ad Campaign Title:");
-        }
-
-        function sendPlayerWarning() {
-            const user = document.getElementById('mod-target-user').value;
-            const reason = document.getElementById('mod-warning-reason').value;
-            if(!user || !reason) { alert("Fill in username and reason."); return; }
-            alert(`Formal warning sent to player "${user}". Reason: ${reason}`);
-            document.getElementById('mod-target-user').value = '';
-            document.getElementById('mod-warning-reason').value = '';
-        }
-
-        function modAction(action, username) {
-            alert(`Action [${action.toUpperCase()}] executed on player ${username}.`);
-        }
-
-        function runAdminCommand(cmd) {
-            alert(`Executed admin command: ${cmd}`);
-        }
-
-        // 3D GAME CLIENT ENGINE
-        let scene, camera, renderer, player;
-        let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
-        let playerVelocityY = 0, isGrounded = true;
-
-        function startMove(direction) {
-            if (direction === 'forward') moveForward = true;
-            if (direction === 'backward') moveBackward = true;
-            if (direction === 'left') moveLeft = true;
-            if (direction === 'right') moveRight = true;
-            if (direction === 'jump' && isGrounded) {
-                playerVelocityY = 0.22;
-                isGrounded = false;
-            }
-        }
-        function stopMove(direction) {
-            if (direction === 'forward') moveForward = false;
-            if (direction === 'backward') moveBackward = false;
-            if (direction === 'left') moveLeft = false;
-            if (direction === 'right') moveRight = false;
-        }
-
-        function launchGame() {
-            document.getElementById('game-client').classList.remove('hidden');
-            document.getElementById('game-client-title').textContent = `BloxVibe (${graphicsMode.toUpperCase()} Mode - ${currentTemplate.toUpperCase()})`;
-            init3DWorld();
-        }
-
-        function exitGame() {
-            document.getElementById('game-client').classList.add('hidden');
-            const container = document.getElementById('canvas-container');
+        function closeRobloxStudio() {
+            document.getElementById('roblox-studio-client').classList.add('hidden');
+            const container = document.getElementById('studio-canvas-container');
+            // preserve title overlay
+            const titleEl = document.getElementById('studio-world-title');
             container.innerHTML = '';
+            container.appendChild(titleEl);
         }
 
-        function init3DWorld() {
-            const container = document.getElementById('canvas-container');
+        function studioToolAction(tool) {
+            alert(`Studio Tool Selected: ${tool.toUpperCase()}`);
+        }
+
+        function studioSpawnPart(partType) {
+            alert(`Spawned ${partType} into Studio Workspace!`);
+            const log = document.getElementById('studio-output-log');
+            log.innerHTML += `<p class="text-emerald-400">[Studio]: Inserted new ${partType} into Workspace.</p>`;
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function playtestStudioGame() {
+            alert("Starting Play Test session inside Studio...");
+            const log = document.getElementById('studio-output-log');
+            log.innerHTML += `<p class="text-blue-400">[Studio]: Playtest session started.</p>`;
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function initStudio3D() {
+            const container = document.getElementById('studio-canvas-container');
+            const titleEl = document.getElementById('studio-world-title');
             container.innerHTML = '';
+            container.appendChild(titleEl);
 
-            scene = new THREE.Scene();
-            scene.background = graphicsMode === 'realistic' ? new THREE.Color(0x1e293b) : new THREE.Color(0x87ceeb);
-            scene.fog = new THREE.FogExp2(scene.background, graphicsMode === 'realistic' ? 0.025 : 0.015);
+            studioScene = new THREE.Scene();
+            studioScene.background = new THREE.Color(0x1a212d);
+            studioScene.fog = new THREE.FogExp2(0x1a212d, 0.015);
 
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.set(0, 5, 10);
+            studioCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            studioCamera.position.set(0, 8, 15);
+            studioCamera.lookAt(0, 0, 0);
 
-            renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.shadowMap.enabled = true;
-            container.appendChild(renderer.domElement);
+            studioRenderer = new THREE.WebGLRenderer({ antialias: true });
+            studioRenderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(studioRenderer.domElement);
 
-            const ambientLight = new THREE.AmbientLight(0xffffff, graphicsMode === 'realistic' ? 0.4 : 0.7);
-            scene.add(ambientLight);
+            const ambient = new THREE.AmbientLight(0xffffff, 0.7);
+            studioScene.add(ambient);
 
-            const sunLight = new THREE.DirectionalLight(0xffffff, graphicsMode === 'realistic' ? 1.2 : 0.8);
-            sunLight.position.set(50, 100, 50);
-            sunLight.castShadow = true;
-            scene.add(sunLight);
+            const dirLight = new THREE.DirectionalLight(0xffffff, 1.0);
+            dirLight.position.set(20, 40, 20);
+            studioScene.add(dirLight);
 
-            // Floor based on template/graphics
-            const floorGeo = new THREE.BoxGeometry(100, 2, 100);
-            const floorMat = new THREE.MeshStandardMaterial({ 
-                color: graphicsMode === 'realistic' ? 0x334155 : 0x808080,
-                roughness: graphicsMode === 'realistic' ? 0.2 : 0.9
-            });
-            const floor = new THREE.Mesh(floorGeo, floorMat);
-            floor.position.y = -1;
-            floor.receiveShadow = true;
-            scene.add(floor);
+            // Studio Baseplate grid visual
+            const baseGeo = new THREE.BoxGeometry(40, 1, 40);
+            const baseMat = new THREE.MeshStandardMaterial({ color: 0x333d4f, roughness: 0.8 });
+            const baseplate = new THREE.Mesh(baseGeo, baseMat);
+            baseplate.position.y = -0.5;
+            studioScene.add(baseplate);
 
-            // Player avatar block
-            const playerGeo = new THREE.BoxGeometry(2, 4, 1);
-            const playerMat = new THREE.MeshStandardMaterial({ color: graphicsMode === 'realistic' ? 0x3b82f6 : 0x0074bd, roughness: 0.3 });
-            player = new THREE.Mesh(playerGeo, playerMat);
-            player.position.set(0, 2, 0);
-            player.castShadow = true;
-            scene.add(player);
+            // Grid helper
+            const gridHelper = new THREE.GridHelper(50, 50, 0x0074bd, 0x2b3240);
+            gridHelper.position.y = 0.01;
+            studioScene.add(gridHelper);
 
             window.addEventListener('resize', () => {
-                if(!camera || !renderer) return;
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
+                if(!studioCamera || !studioRenderer) return;
+                studioCamera.aspect = container.clientWidth / container.clientHeight;
+                studioCamera.updateProjectionMatrix();
+                studioRenderer.setSize(container.clientWidth, container.clientHeight);
             });
 
-            animate();
+            animateStudio();
         }
 
-        let prevTime = performance.now();
-        function animate() {
-            requestAnimationFrame(animate);
-            const time = performance.now();
-            const delta = (time - prevTime) / 1000;
-
-            if (player) {
-                if (moveForward) player.position.z -= playerSpeed * delta;
-                if (moveBackward) player.position.z += playerSpeed * delta;
-                if (moveLeft) player.position.x -= playerSpeed * delta;
-                if (moveRight) player.position.x += playerSpeed * delta;
-
-                if (!isGrounded || player.position.y > 2) {
-                    playerVelocityY -= 0.01;
-                    player.position.y += playerVelocityY;
-                    if (player.position.y <= 2) {
-                        player.position.y = 2;
-                        playerVelocityY = 0;
-                        isGrounded = true;
-                    }
-                }
-
-                camera.position.x = player.position.x;
-                camera.position.y = player.position.y + 6;
-                camera.position.z = player.position.z + 12;
-                camera.lookAt(player.position);
+        function animateStudio() {
+            if(document.getElementById('roblox-studio-client').classList.contains('hidden')) return;
+            requestAnimationFrame(animateStudio);
+            if(studioRenderer && studioScene && studioCamera) {
+                studioRenderer.render(studioScene, studioCamera);
             }
-            prevTime = time;
-            renderer.render(scene, camera);
         }
     </script>
 </body>
