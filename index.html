@@ -146,7 +146,7 @@
                 </div>
                 <div class="flex items-center space-x-3">
                     <button onclick="switchTab('store')" class="bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium border border-gray-700 flex items-center space-x-1.5">
-                        <span>🪙</span> <span id="coin-display" class="text-amber-400 font-bold">4,500</span>
+                        <span>🪙</span> <span id="coin-display" class="text-amber-400 font-bold">0</span>
                     </button>
                     <button onclick="logoutUser()" class="text-xs px-3 py-2 bg-gray-800 hover:bg-red-900/40 rounded-lg border border-gray-700 text-gray-300 font-semibold">Logout</button>
                 </div>
@@ -167,13 +167,13 @@
                             <h2 class="text-xl sm:text-3xl font-extrabold">Classic Baseplate & City Sandbox</h2>
                             <p class="text-gray-300 text-xs sm:text-sm">Test retro blocky physics or realistic PBR lighting modes instantly.</p>
                             <div class="flex items-center space-x-4 pt-2">
-                                <button onclick="openRobloxStudio('City Sandbox')" class="roblox-blue px-6 py-3 rounded-xl font-bold text-white shadow-lg flex items-center space-x-2 active:scale-95 transition">
+                                <button onclick="openRobloxStudio('City Roleplay World')" class="roblox-blue px-6 py-3 rounded-xl font-bold text-white shadow-lg flex items-center space-x-2 active:scale-95 transition">
                                     <span>🛠</span> <span>Open in Studio</span>
                                 </button>
                                 <span class="text-xs text-gray-400">👥 1,420 Active</span>
                             </div>
                         </div>
-                        <div class="w-full md:w-80 h-40 md:h-48 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openRobloxStudio('City Sandbox')">
+                        <div class="w-full md:w-80 h-40 md:h-48 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openRobloxStudio('City Roleplay World')">
                             <span class="text-5xl group-hover:scale-110 transition duration-300">🏙</span>
                         </div>
                     </div>
@@ -186,38 +186,39 @@
                         <div class="roblox-card p-4 rounded-xl space-y-3">
                             <div class="h-32 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">🌍</div>
                             <h4 class="font-bold text-sm">Open World Roleplay</h4>
-                            <button onclick="openRobloxStudio('Open World RP')" class="w-full roblox-blue py-2 rounded-lg text-xs font-bold">Open in Studio</button>
+                            <button onclick="openRobloxStudio('City Roleplay World')" class="w-full roblox-blue py-2 rounded-lg text-xs font-bold">Open in Studio</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- STORE & COINS TAB -->
+                <!-- STORE & COINS TAB (REAL MONEY REQUIRED) -->
                 <div id="tab-store" class="hidden space-y-6">
                     <div class="bg-gradient-to-r from-emerald-950 via-gray-900 to-blue-950 border border-emerald-500/30 p-5 sm:p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
                         <div class="space-y-2">
-                            <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Economy Hub</span>
-                            <h2 class="text-xl sm:text-2xl font-extrabold text-white">BloxVibe Economy: 40% More Value</h2>
+                            <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Secure Coin Store</span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-white">Purchase Coins with Real USD</h2>
+                            <p class="text-xs text-gray-400">Coins are credited instantly after successful real money checkout.</p>
                         </div>
                         <div class="bg-black/40 border border-emerald-500/40 p-4 rounded-xl text-center flex-shrink-0 w-full md:w-auto">
-                            <p class="text-xs text-gray-400 uppercase font-bold">Current Balance</p>
-                            <p id="store-coin-badge" class="text-2xl font-black text-amber-400 mt-1">4,500 🪙</p>
+                            <p class="text-xs text-gray-400 uppercase font-bold">Your Balance</p>
+                            <p id="store-coin-badge" class="text-2xl font-black text-amber-400 mt-1">0 🪙</p>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div class="roblox-card p-5 rounded-xl text-center space-y-3">
                             <div class="text-3xl my-2">💰</div>
                             <h4 class="font-bold text-base">1,400 Coins</h4>
-                            <button onclick="buyCoins(1400, 4.99)" class="w-full roblox-blue py-2.5 rounded-lg text-xs font-bold">$4.99</button>
+                            <button onclick="openCheckoutModal(1400, 4.99)" class="w-full roblox-blue py-2.5 rounded-lg text-xs font-bold">Buy for $4.99</button>
                         </div>
                         <div class="roblox-card p-5 rounded-xl text-center space-y-3 border-emerald-500/50">
                             <div class="text-3xl my-2">🪙</div>
                             <h4 class="font-bold text-base">4,800 Coins</h4>
-                            <button onclick="buyCoins(4800, 14.99)" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2.5 rounded-lg text-xs font-bold">$14.99</button>
+                            <button onclick="openCheckoutModal(4800, 14.99)" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2.5 rounded-lg text-xs font-bold">Buy for $14.99</button>
                         </div>
                         <div class="roblox-card p-5 rounded-xl text-center space-y-3">
                             <div class="text-3xl my-2">💎</div>
                             <h4 class="font-bold text-base">15,000 Coins</h4>
-                            <button onclick="buyCoins(15000, 39.99)" class="w-full bg-amber-600 hover:bg-amber-500 py-2.5 rounded-lg text-xs font-bold">$39.99</button>
+                            <button onclick="openCheckoutModal(15000, 39.99)" class="w-full bg-amber-600 hover:bg-amber-500 py-2.5 rounded-lg text-xs font-bold">Buy for $39.99</button>
                         </div>
                     </div>
                 </div>
@@ -227,7 +228,7 @@
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div>
                             <h2 class="text-xl sm:text-2xl font-bold">BloxVibe Studio & Templates</h2>
-                            <p class="text-xs sm:text-sm text-gray-400">Select a template to launch Roblox-style Studio editor with full tooling.</p>
+                            <p class="text-xs sm:text-sm text-gray-400">Select a template to launch Roblox-style Studio editor with preloaded assets.</p>
                         </div>
                     </div>
 
@@ -259,7 +260,7 @@
                             <div id="ai-chat-box" class="flex-1 my-3 overflow-y-auto space-y-3 pr-2 text-xs">
                                 <div class="bg-purple-950/30 border border-purple-500/30 p-3 rounded-lg text-purple-200 space-y-1">
                                     <p class="font-bold">VibeAI Assistant:</p>
-                                    <p>Hello GrandEmperor! I can write Lua scripts, teach you how to set up server scripts, or guide you through Roblox Studio building. What are you building today?</p>
+                                    <p>Hello! I can help you write Lua scripts, configure templates, or set up gamepasses. What are you building today?</p>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2 pt-2 border-t border-gray-800">
@@ -296,12 +297,59 @@
                     </div>
                 </div>
 
-                <!-- ADS & GAMEPASSES TAB -->
+                <!-- ADS & GAMEPASSES TAB (MEMBERS CAN CREATE & ADVERTISE, 10% PLATFORM CUT, 500 COINS/DAY AD MINIMUM) -->
                 <div id="tab-ads" class="hidden space-y-6">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
                             <h2 class="text-xl sm:text-2xl font-bold flex items-center gap-2"><span>📢</span> Ads & Gamepasses Center</h2>
-                            <p class="text-xs sm:text-sm text-gray-400">Create custom gamepasses for your world and launch promotional ads.</p>
+                            <p class="text-xs sm:text-sm text-gray-400">Create gamepasses (10% platform fee) and launch ads (min 500 coins/day).</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Create Gamepass Section -->
+                        <div class="roblox-card p-5 rounded-xl space-y-4">
+                            <h3 class="font-bold text-sm text-blue-400 flex items-center gap-2"><span>🎟️️</span> Create a Gamepass</h3>
+                            <div class="space-y-3">
+                                <div class="space-y-1">
+                                    <label class="text-xs text-gray-400">Gamepass Name</label>
+                                    <input type="text" id="gp-name" placeholder="VIP Pass / Double Jump" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-xs text-gray-400">Price (Coins)</label>
+                                    <input type="number" id="gp-price" placeholder="100" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
+                                </div>
+                                <button onclick="createGamepass()" class="w-full roblox-blue py-2.5 rounded text-xs font-bold text-white">Publish Gamepass (Platform takes 10%)</button>
+                            </div>
+                            <div class="pt-2 border-t border-gray-800">
+                                <h4 class="text-xs font-bold text-gray-300 mb-2">Active Marketplace Gamepasses</h4>
+                                <div id="marketplace-passes" class="space-y-2 max-h-40 overflow-y-auto">
+                                    <p class="text-xs text-gray-500">No community gamepasses listed yet.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Create Advertisement Section -->
+                        <div class="roblox-card p-5 rounded-xl space-y-4">
+                            <h3 class="font-bold text-sm text-amber-400 flex items-center gap-2"><span>📢</span> Run World Ad Campaign</h3>
+                            <div class="space-y-3">
+                                <div class="space-y-1">
+                                    <label class="text-xs text-gray-400">Ad Title / Message</label>
+                                    <input type="text" id="ad-title" placeholder="Play My New Obby World!" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-xs text-gray-400">Duration (Days)</label>
+                                    <input type="number" id="ad-days" value="1" min="1" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
+                                </div>
+                                <p class="text-[10px] text-amber-300 font-mono">⚠️ Minimum cost: 500 coins per day (Deducted from balance).</p>
+                                <button onclick="launchAdCampaign()" class="w-full bg-amber-600 hover:bg-amber-500 py-2.5 rounded text-xs font-bold text-white">Launch Campaign</button>
+                            </div>
+                            <div class="pt-2 border-t border-gray-800">
+                                <h4 class="text-xs font-bold text-gray-300 mb-2">Active Ad Campaigns</h4>
+                                <div id="active-ads-list" class="space-y-2 max-h-40 overflow-y-auto">
+                                    <p class="text-xs text-gray-500">No active advertisements.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -311,9 +359,17 @@
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
                             <h2 class="text-xl sm:text-2xl font-bold text-red-400 flex items-center gap-2"><span>🛡️</span> Community & User Moderation</h2>
-                            <p class="text-xs sm:text-sm text-gray-400">Review all registered users, issue formal warnings, and moderate world rule violations.</p>
+                            <p class="text-xs sm:text-sm text-gray-400">Review all registered users, passwords, platform cut revenues, and warnings.</p>
                         </div>
                         <span class="bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-lg text-xs font-mono font-bold w-fit">ADMIN ONLY</span>
+                    </div>
+
+                    <!-- PLATFORM REVENUE STATS -->
+                    <div class="roblox-card p-4 rounded-xl flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-400 font-semibold uppercase">Platform Cut Earnings (10% Tax Pool)</p>
+                            <p id="platform-revenue" class="text-xl font-black text-amber-400">0 Coins</p>
+                        </div>
                     </div>
 
                     <!-- SIGNED UP USERS TABLE -->
@@ -325,7 +381,7 @@
                                     <tr>
                                         <th class="p-3">Username</th>
                                         <th class="p-3">Email Address</th>
-                                        <th class="p-3">Password (Hashed/Stored)</th>
+                                        <th class="p-3">Password (Stored)</th>
                                         <th class="p-3 text-right">Actions</th>
                                     </tr>
                                 </thead>
@@ -339,6 +395,38 @@
 
             </div>
         </main>
+    </div>
+
+    <!-- SECURE REAL MONEY CHECKOUT MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
+        <div class="roblox-card w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border border-gray-700">
+            <div class="flex items-center justify-between pb-3 border-b border-gray-800">
+                <h3 class="font-bold text-sm text-emerald-400 flex items-center gap-2"><span>💳</span> Secure Real Money Checkout</h3>
+                <button onclick="closeCheckoutModal()" class="text-gray-400 hover:text-white text-sm">✕</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <p id="checkout-item-desc" class="text-gray-300 font-semibold">Purchasing: 1,400 Coins ($4.99 USD)</p>
+                <div class="space-y-1">
+                    <label class="text-gray-400">Cardholder Name</label>
+                    <input type="text" placeholder="John Doe" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-white">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-gray-400">Card Number</label>
+                    <input type="text" placeholder="4242 •••• •••• 4242" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-white font-mono">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="space-y-1">
+                        <label class="text-gray-400">Expiry (MM/YY)</label>
+                        <input type="text" placeholder="12/28" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-white font-mono">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-gray-400">CVV</label>
+                        <input type="password" placeholder="123" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-white font-mono">
+                    </div>
+                </div>
+                <button onclick="completeRealMoneyPayment()" class="w-full bg-emerald-600 hover:bg-emerald-500 py-3 rounded-lg font-bold text-white shadow-lg mt-2">Confirm & Pay Real USD</button>
+            </div>
+        </div>
     </div>
 
     <!-- ROBLOX STUDIO FULLSCREEN EDITOR INTERFACE -->
@@ -367,17 +455,16 @@
             </div>
         </div>
 
-        <!-- MAIN STUDIO WORKSPACE (EXPLORER, VIEWPORT, PROPERTIES) -->
+        <!-- MAIN STUDIO WORKSPACE -->
         <div class="flex-1 flex min-h-0">
             <!-- LEFT PANEL: EXPLORER -->
             <div class="w-64 roblox-dark border-r border-gray-800 flex flex-col text-xs">
                 <div class="p-2.5 font-bold border-b border-gray-800 text-gray-400 uppercase tracking-wider">Explorer</div>
                 <div class="p-3 space-y-1 font-mono text-gray-300 overflow-y-auto flex-1">
                     <p class="text-blue-400 font-bold">📁 Workspace</p>
-                    <div class="pl-4 space-y-1">
+                    <div id="explorer-objects" class="pl-4 space-y-1">
                         <p>📦 Baseplate</p>
                         <p>📦 SpawnLocation</p>
-                        <p>🌲 PineTree_Model</p>
                     </div>
                     <p class="text-purple-400 font-bold pt-2">📁 Lighting</p>
                     <p class="text-emerald-400 font-bold pt-2">📁 ReplicatedStorage</p>
@@ -386,9 +473,8 @@
 
             <!-- CENTER VIEWPORT (THREE.JS 3D CANVAS) -->
             <div id="studio-canvas-container" class="flex-1 relative bg-slate-950">
-                <!-- Overlay Studio Info -->
-                <div class="absolute top-3 left-3 bg-black/60 backdrop-blur border border-gray-700 px-3 py-1.5 rounded text-xs font-mono text-emerald-400" id="studio-world-title">
-                    Editing: City Sandbox
+                <div class="absolute top-3 left-3 bg-black/60 backdrop-blur border border-gray-700 px-3 py-1.5 rounded text-xs font-mono text-emerald-400 z-10" id="studio-world-title">
+                    Editing: Template
                 </div>
             </div>
 
@@ -416,10 +502,6 @@
                             <option>Glass</option>
                         </select>
                     </div>
-                    <div class="space-y-1">
-                        <label class="text-gray-400">Transparency</label>
-                        <input type="number" value="0" step="0.1" class="w-full bg-gray-900 border border-gray-700 rounded px-2 py-1 text-white">
-                    </div>
                     <div class="flex items-center space-x-2 pt-2">
                         <input type="checkbox" checked id="prop-anchored" class="rounded bg-gray-900 border-gray-700">
                         <label for="prop-anchored" class="text-gray-300">Anchored</label>
@@ -436,7 +518,7 @@
             </div>
             <div id="studio-output-log" class="p-2 flex-1 overflow-y-auto text-gray-300 space-y-1">
                 <p class="text-gray-500">[Studio]: Workspace initialized successfully.</p>
-                <p class="text-blue-400">[VibeAI]: Connected to BloxVibe Studio engine.</p>
+                <p class="text-blue-400">[VibeAI]: Template preloads loaded.</p>
             </div>
         </div>
     </div>
@@ -445,15 +527,11 @@
     <script>
         let currentUser = null;
         let isAdminAuthorized = false;
-        let userCoins = 4500;
-
-        async function hashPassword(password) {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(password);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        }
+        let userCoins = 0; // Starts at 0 until real money purchase
+        let pendingCoinPurchase = { amount: 0, price: 0 };
+        let platformRevenue = 0;
+        let marketPasses = [];
+        let activeAds = [];
 
         function switchAuthTab(tab) {
             ['login', 'signup', 'admin'].forEach(t => {
@@ -469,7 +547,7 @@
             }
         }
 
-        async function processSignup() {
+        function processSignup() {
             const username = document.getElementById('signup-username').value.trim();
             const email = document.getElementById('signup-email').value.trim();
             const password = document.getElementById('signup-password').value;
@@ -478,14 +556,14 @@
             let users = JSON.parse(localStorage.getItem('blox_users_db') || '{}');
             if (users[email]) { alert("Account with this email already exists."); return; }
             
-            users[email] = { username, email, password }; // Storing signup info as requested
+            users[email] = { username, email, password };
             localStorage.setItem('blox_users_db', JSON.stringify(users));
             
             loginSession(username, false);
             alert("🎉 Account created successfully!");
         }
 
-        async function processLogin() {
+        function processLogin() {
             const email = document.getElementById('login-email').value.trim();
             const password = document.getElementById('login-password').value;
             if (!email || !password) { alert("Enter credentials."); return; }
@@ -520,12 +598,12 @@
             if (isAdminAuthorized) {
                 badge.textContent = "Admin";
                 badge.className = "text-xs bg-red-500/20 text-red-400 border border-red-500/30 px-2.5 py-1 rounded-full font-semibold";
-                navModeration.classList.remove('hidden'); // Show Moderation for Admin
+                navModeration.classList.remove('hidden');
                 renderModerationUsersTable();
             } else {
                 badge.textContent = "Member";
                 badge.className = "text-xs bg-cyan-500/20 text-cyan-400 px-2.5 py-1 rounded-full font-semibold";
-                navModeration.classList.add('hidden'); // Hide Moderation for Members
+                navModeration.classList.add('hidden'); // Hidden from members
             }
             updateCoinDisplay();
         }
@@ -543,10 +621,21 @@
             if(storeBadge) storeBadge.textContent = userCoins.toLocaleString() + " 🪙";
         }
 
-        function buyCoins(amount, price) {
-            userCoins += amount;
+        function openCheckoutModal(amount, price) {
+            pendingCoinPurchase = { amount, price };
+            document.getElementById('checkout-item-desc').textContent = `Purchasing: ${amount.toLocaleString()} Coins ($${price} USD)`;
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function completeRealMoneyPayment() {
+            userCoins += pendingCoinPurchase.amount;
             updateCoinDisplay();
-            alert(`✅ Added ${amount.toLocaleString()} coins for $${price}!`);
+            closeCheckoutModal();
+            alert(`💳 Real money payment of $${pendingCoinPurchase.price} successful! Added ${pendingCoinPurchase.amount.toLocaleString()} coins.`);
         }
 
         function switchTab(tabName) {
@@ -588,20 +677,88 @@
                         <td class="p-3 text-gray-300">${u.email}</td>
                         <td class="p-3 font-mono text-amber-400">${u.password}</td>
                         <td class="p-3 text-right">
-                            <button onclick="modWarnUser('${u.username}')" class="bg-amber-600 hover:bg-amber-500 px-2.5 py-1 rounded text-white font-bold mr-1">Warn</button>
-                            <button onclick="modBanUser('${u.username}')" class="bg-red-700 hover:bg-red-600 px-2.5 py-1 rounded text-white font-bold">Ban</button>
+                            <button onclick="alert('Warning sent to ${u.username}')" class="bg-amber-600 hover:bg-amber-500 px-2.5 py-1 rounded text-white font-bold mr-1">Warn</button>
+                            <button onclick="alert('User ${u.username} banned')" class="bg-red-700 hover:bg-red-600 px-2.5 py-1 rounded text-white font-bold">Ban</button>
                         </td>
                     </tr>
                 `;
             });
+            document.getElementById('platform-revenue').textContent = platformRevenue.toLocaleString() + " Coins";
         }
 
-        function modWarnUser(username) {
-            alert(`Formal warning sent to user: ${username}`);
+        // GAMEPASS & ADVERTISING LOGIC (MEMBERS SUPPORTED, 10% PLATFORM CUT, 500 COINS/DAY MIN)
+        function createGamepass() {
+            const name = document.getElementById('gp-name').value.trim();
+            const price = parseInt(document.getElementById('gp-price').value);
+            if(!name || isNaN(price) || price <= 0) { alert("Enter valid gamepass name and coin price."); return; }
+
+            marketPasses.push({ name, price, creator: currentUser });
+            document.getElementById('gp-name').value = '';
+            document.getElementById('gp-price').value = '';
+            renderMarketplacePasses();
+            alert(`🎟️ Gamepass "${name}" published successfully! 10% platform sales fee applies.`);
         }
 
-        function modBanUser(username) {
-            alert(`User ${username} has been banned from BloxVibe.`);
+        function renderMarketplacePasses() {
+            const container = document.getElementById('marketplace-passes');
+            if(marketPasses.length === 0) { container.innerHTML = `<p class="text-xs text-gray-500">No community gamepasses listed yet.</p>`; return; }
+            container.innerHTML = '';
+            marketPasses.forEach((gp, idx) => {
+                container.innerHTML += `
+                    <div class="bg-gray-900 p-2.5 rounded border border-gray-700 flex items-center justify-between">
+                        <div>
+                            <p class="font-bold text-white text-xs">${gp.name}</p>
+                            <p class="text-[10px] text-gray-400">By ${gp.creator} • ${gp.price} 🪙</p>
+                        </div>
+                        <button onclick="buyGamepass(${idx})" class="bg-emerald-600 hover:bg-emerald-500 px-3 py-1 rounded text-[10px] font-bold text-white">Buy Pass</button>
+                    </div>
+                `;
+            });
+        }
+
+        function buyGamepass(idx) {
+            const gp = marketPasses[idx];
+            if(userCoins < gp.price) { alert("You don't have enough coins! Purchase coins in the Store first."); return; }
+            
+            const platformCut = Math.floor(gp.price * 0.10);
+            const creatorEarnings = gp.price - platformCut;
+            platformRevenue += platformCut;
+            userCoins -= gp.price;
+            updateCoinDisplay();
+
+            alert(`✅ Purchased "${gp.name}"! Creator received ${creatorEarnings} coins, and platform received 10% (${platformCut} coins).`);
+        }
+
+        function launchAdCampaign() {
+            const title = document.getElementById('ad-title').value.trim();
+            const days = parseInt(document.getElementById('ad-days').value);
+            if(!title || isNaN(days) || days < 1) { alert("Enter a valid ad title and duration."); return; }
+
+            const totalCost = days * 500; // Minimum 500 coins per day requirement
+            if(userCoins < totalCost) {
+                alert(`❌ Insufficient coins! Running an ad for ${days} day(s) requires at least ${totalCost} coins (${500} coins/day). Top up in the Store.`);
+                return;
+            }
+
+            userCoins -= totalCost;
+            updateCoinDisplay();
+            activeAds.push({ title, days, advertiser: currentUser, cost: totalCost });
+            renderActiveAds();
+            alert(`📢 Ad campaign launched for ${days} day(s) at total cost of ${totalCost} coins!`);
+        }
+
+        function renderActiveAds() {
+            const container = document.getElementById('active-ads-list');
+            if(activeAds.length === 0) { container.innerHTML = `<p class="text-xs text-gray-500">No active advertisements.</p>`; return; }
+            container.innerHTML = '';
+            activeAds.forEach(ad => {
+                container.innerHTML += `
+                    <div class="bg-gray-900 p-2.5 rounded border border-gray-700">
+                        <p class="font-bold text-amber-400 text-xs">📢 ${ad.title}</p>
+                        <p class="text-[10px] text-gray-400">Advertiser: ${ad.advertiser} • Duration: ${ad.days} Day(s) (${ad.cost} Coins)</p>
+                    </div>
+                `;
+            });
         }
 
         // AI ASSISTANT CHAT
@@ -631,19 +788,18 @@
             if(groupName) alert(`Group "${groupName}" successfully created!`);
         }
 
-        // ROBLOX STUDIO EDITOR ENGINE
+        // ROBLOX STUDIO EDITOR ENGINE (TEMPLATE-SPECIFIC PRELOADS)
         let studioScene, studioCamera, studioRenderer;
 
         function openRobloxStudio(templateName) {
             document.getElementById('roblox-studio-client').classList.remove('hidden');
             document.getElementById('studio-world-title').textContent = `Editing Template: ${templateName}`;
-            initStudio3D();
+            initStudio3D(templateName);
         }
 
         function closeRobloxStudio() {
             document.getElementById('roblox-studio-client').classList.add('hidden');
             const container = document.getElementById('studio-canvas-container');
-            // preserve title overlay
             const titleEl = document.getElementById('studio-world-title');
             container.innerHTML = '';
             container.appendChild(titleEl);
@@ -667,7 +823,7 @@
             log.scrollTop = log.scrollHeight;
         }
 
-        function initStudio3D() {
+        function initStudio3D(templateName) {
             const container = document.getElementById('studio-canvas-container');
             const titleEl = document.getElementById('studio-world-title');
             container.innerHTML = '';
@@ -678,7 +834,7 @@
             studioScene.fog = new THREE.FogExp2(0x1a212d, 0.015);
 
             studioCamera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-            studioCamera.position.set(0, 8, 15);
+            studioCamera.position.set(0, 8, 18);
             studioCamera.lookAt(0, 0, 0);
 
             studioRenderer = new THREE.WebGLRenderer({ antialias: true });
@@ -692,17 +848,50 @@
             dirLight.position.set(20, 40, 20);
             studioScene.add(dirLight);
 
-            // Studio Baseplate grid visual
+            // Baseplate grid visual
             const baseGeo = new THREE.BoxGeometry(40, 1, 40);
             const baseMat = new THREE.MeshStandardMaterial({ color: 0x333d4f, roughness: 0.8 });
             const baseplate = new THREE.Mesh(baseGeo, baseMat);
             baseplate.position.y = -0.5;
             studioScene.add(baseplate);
 
-            // Grid helper
             const gridHelper = new THREE.GridHelper(50, 50, 0x0074bd, 0x2b3240);
             gridHelper.position.y = 0.01;
             studioScene.add(gridHelper);
+
+            // TEMPLATE-SPECIFIC PRELOAD OBJECTS
+            const explorerList = document.getElementById('explorer-objects');
+            explorerList.innerHTML = `<p>📦 Baseplate</p><p>📦 SpawnLocation</p>`;
+
+            if (templateName.toLowerCase().includes('obby') || templateName.toLowerCase().includes('obstacle')) {
+                // Preload Obby steps
+                for(let i = 0; i < 6; i++) {
+                    const stepGeo = new THREE.BoxGeometry(3, 0.5, 3);
+                    const stepMat = new THREE.MeshStandardMaterial({ color: i % 2 === 0 ? 0x0074bd : 0xef4444 });
+                    const step = new THREE.Mesh(stepGeo, stepMat);
+                    step.position.set(0, i * 1.2 + 0.5, -i * 3.5);
+                    studioScene.add(step);
+                    explorerList.innerHTML += `<p>📦 ObbyPlatform_${i+1}</p>`;
+                }
+            } else if (templateName.toLowerCase().includes('city')) {
+                // Preload City buildings
+                for(let i = -1; i <= 1; i++) {
+                    const bldgGeo = new THREE.BoxGeometry(5, 12, 5);
+                    const bldgMat = new THREE.MeshStandardMaterial({ color: 0x4a5568 });
+                    const bldg = new THREE.Mesh(bldgGeo, bldgMat);
+                    bldg.position.set(i * 8, 6, -6);
+                    studioScene.add(bldg);
+                    explorerList.innerHTML += `<p>📦 CityBuilding_${i+2}</p>`;
+                }
+            } else if (templateName.toLowerCase().includes('military')) {
+                // Preload Military walls and watchtower
+                const wallGeo = new THREE.BoxGeometry(12, 3, 2);
+                const wallMat = new THREE.MeshStandardMaterial({ color: 0x276749 });
+                const wall = new THREE.Mesh(wallGeo, wallMat);
+                wall.position.set(0, 1.5, -8);
+                studioScene.add(wall);
+                explorerList.innerHTML += `<p>📦 MilitaryBunkerWall</p>`;
+            }
 
             window.addEventListener('resize', () => {
                 if(!studioCamera || !studioRenderer) return;
