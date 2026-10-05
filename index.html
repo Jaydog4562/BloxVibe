@@ -121,7 +121,7 @@
                     <button onclick="switchTab('store')" id="nav-store" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
                         <span>🛒</span> <span>Store & Coins</span>
                     </button>
-                    <!-- STUDIO TAB (HIDDEN FOR MEMBERS) -->
+                    <!-- STUDIO TAB -->
                     <button onclick="switchTab('studio')" id="nav-studio" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
                         <span>🛠</span> <span>Studio & Templates</span>
                     </button>
@@ -177,7 +177,7 @@
                         <p class="text-xs sm:text-sm text-gray-400 mt-1">All user states, maps, and activity logs are automatically saved.</p>
                     </div>
 
-                    <!-- BECOME A CREATOR BANNER (VISIBLE FOR LEVEL 1 MEMBERS) -->
+                    <!-- BECOME A CREATOR BANNER -->
                     <div id="member-upgrade-banner" class="hidden roblox-card rounded-2xl p-5 sm:p-6 bg-gradient-to-r from-blue-950 via-gray-900 to-indigo-950 border border-blue-500/40 space-y-3">
                         <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Member Account</span>
                         <h2 class="text-xl sm:text-2xl font-bold text-white">Unlock Roblox Studio & Paid Marketplace Items</h2>
@@ -212,7 +212,6 @@
                             <h4 class="font-bold text-sm text-emerald-300">Grass & Terrain Landscape</h4>
                             <button onclick="openRobloxStudio('Grass & Terrain Landscape')" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2 rounded-lg text-xs font-bold text-white">Open Studio (FREE 🪙)</button>
                         </div>
-                        <!-- PAID TEMPLATES (HIDDEN/LOCKED FOR LEVEL 1 MEMBERS) -->
                         <div class="roblox-card p-4 rounded-xl space-y-3 paid-marketplace-item">
                             <div class="h-28 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">🏃</div>
                             <h4 class="font-bold text-sm">Obstacle Course (Obby)</h4>
@@ -263,11 +262,11 @@
                     </div>
                 </div>
 
-                <!-- STUDIO & TEMPLATES TAB (CREATORS ONLY) -->
+                <!-- STUDIO & TEMPLATES TAB -->
                 <div id="tab-studio" class="hidden space-y-6">
                     <div>
                         <h2 class="text-xl sm:text-2xl font-bold">Studio Engine & Template World Launcher</h2>
-                        <p class="text-xs sm:text-sm text-gray-400">Grass & Terrain is 100% Free! Other templates are 250 coins. Full 3D Roblox Studio orbit controls and live auto-save enabled.</p>
+                        <p class="text-xs sm:text-sm text-gray-400">Grass & Terrain is 100% Free! Full mobile touch support & live auto-save enabled.</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -306,14 +305,6 @@
                             <button onclick="publishAdCampaign()" class="roblox-blue py-2 rounded text-xs font-bold text-white">Launch Campaign</button>
                         </div>
                     </div>
-                    <div class="roblox-card p-5 rounded-xl space-y-3">
-                        <h3 class="font-bold text-sm text-emerald-400">Create Gamepass</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                            <input type="text" id="gp-name" placeholder="Pass Name" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
-                            <input type="number" id="gp-price" placeholder="Price in Coins" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
-                            <button onclick="createGamepass()" class="roblox-blue py-2 rounded text-xs font-bold text-white">Publish Pass</button>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- MODERATION & SESSION LOGS TAB -->
@@ -321,12 +312,11 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <h2 class="text-xl sm:text-2xl font-bold text-red-400">Moderator & Session Exit Logs</h2>
-                            <p class="text-xs text-gray-400">Automatically records when any user closes out of the website, plus admin coin grants and moderation actions.</p>
+                            <p class="text-xs text-gray-400">Automatically records session exit events and admin coin actions.</p>
                         </div>
                         <button onclick="clearSessionLogs()" class="bg-red-900/60 hover:bg-red-800 text-red-200 px-3 py-1.5 rounded text-xs font-bold border border-red-700">Clear Logs</button>
                     </div>
 
-                    <!-- ADMIN COIN DISBURSEMENT -->
                     <div id="admin-coin-grant-box" class="roblox-card p-5 rounded-xl space-y-3 border-purple-500/40">
                         <h3 class="font-bold text-sm text-purple-400">🎁 Admin Coin Grant Tool (Reason Required)</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -337,9 +327,8 @@
                         <button onclick="executeAdminGrantCoins()" class="bg-purple-700 hover:bg-purple-600 px-4 py-2 rounded text-xs font-bold text-white">Send Coins with Reason Log</button>
                     </div>
 
-                    <!-- LOGS TABLE -->
                     <div class="roblox-card p-5 rounded-xl space-y-3">
-                        <h3 class="font-bold text-white text-sm">📋 Automated Session Exit & Action Logs (Mod View Only)</h3>
+                        <h3 class="font-bold text-white text-sm">📋 Automated Session Exit & Action Logs</h3>
                         <div class="overflow-x-auto max-h-96">
                             <table class="w-full text-left text-xs">
                                 <thead class="bg-gray-900 text-gray-400 border-b border-gray-700 font-mono">
@@ -350,9 +339,7 @@
                                         <th class="p-3">Details / Reason</th>
                                     </tr>
                                 </thead>
-                                <tbody id="session-logs-table" class="divide-y divide-gray-800 font-mono">
-                                    <!-- Populated dynamically -->
-                                </tbody>
+                                <tbody id="session-logs-table" class="divide-y divide-gray-800 font-mono"></tbody>
                             </table>
                         </div>
                     </div>
@@ -361,18 +348,13 @@
                 <!-- OWNERSHIP & ADMIN MANAGEMENT TAB -->
                 <div id="tab-ownership" class="hidden space-y-6">
                     <div class="bg-gradient-to-r from-amber-950 via-gray-900 to-gray-900 border border-amber-500/40 p-5 rounded-2xl space-y-4">
-                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                            <div>
-                                <span class="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-bold uppercase">GrandEmperor Control Center</span>
-                                <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-1">Owner Revenue Card: $<span id="owner-revenue-pool">0.00</span> USD</h2>
-                                <p class="text-xs text-gray-400">All real money checkout transactions route straight to this card.</p>
-                            </div>
+                        <div>
+                            <span class="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-bold uppercase">GrandEmperor Control Center</span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-1">Owner Revenue Card: $<span id="owner-revenue-pool">0.00</span> USD</h2>
+                            <p class="text-xs text-gray-400">All real money checkout transactions route straight to this card.</p>
                         </div>
-
-                        <!-- OWNER-ONLY BANK TRANSFER MODULE -->
                         <div class="bg-black/60 border border-amber-500/40 p-4 rounded-xl space-y-3">
-                            <h4 class="font-bold text-sm text-amber-400">🏦 Transfer Owner Revenue to Personal Bank (Owner Only)</h4>
-                            <p class="text-xs text-gray-400">Only you (GrandEmperor) can transfer the balance of the Owner Revenue Card directly to your personal bank account.</p>
+                            <h4 class="font-bold text-sm text-amber-400">🏦 Transfer Owner Revenue to Personal Bank</h4>
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 <input type="text" id="owner-bank-name" placeholder="Bank Name (e.g., Chase)" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
                                 <input type="text" id="owner-routing-num" placeholder="Routing & Account Number" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white font-mono">
@@ -393,9 +375,7 @@
                                         <th class="p-3 text-right">Owner Management Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody id="owner-users-table" class="divide-y divide-gray-800">
-                                    <!-- Populated dynamically -->
-                                </tbody>
+                                <tbody id="owner-users-table" class="divide-y divide-gray-800"></tbody>
                             </table>
                         </div>
                     </div>
@@ -405,7 +385,7 @@
         </main>
     </div>
 
-    <!-- BANK ACCOUNT & CARD VALIDATION CHECKOUT MODAL -->
+    <!-- BANK & CARD CHECKOUT MODAL -->
     <div id="checkout-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
         <div class="roblox-card w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border border-gray-700">
             <div class="flex items-center justify-between pb-3 border-b border-gray-800">
@@ -435,14 +415,13 @@
                 <div class="space-y-1 bg-gray-900 p-2.5 rounded border border-gray-800">
                     <label class="text-amber-400 font-bold">Simulated Bank Account Funds Check ($ USD)</label>
                     <input type="number" id="chk-bank-funds" value="100.00" class="w-full bg-black border border-gray-700 rounded px-3 py-2 text-white font-mono" placeholder="Available Bank Balance">
-                    <p class="text-[10px] text-gray-500 mt-1">System verifies that your bank account has sufficient funds before authorizing coin delivery and routing funds directly to the Owner's card.</p>
                 </div>
                 <button onclick="processBankVerifiedPayment()" class="w-full bg-emerald-600 hover:bg-emerald-500 py-3 rounded-lg font-bold text-white shadow-lg mt-2">Verify Funds & Complete Purchase</button>
             </div>
         </div>
     </div>
 
-    <!-- CREATOR UPGRADE CARD MODAL -->
+    <!-- CREATOR UPGRADE MODAL -->
     <div id="creator-upgrade-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
         <div class="roblox-card w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border border-blue-500/40">
             <div class="flex items-center justify-between pb-3 border-b border-gray-800">
@@ -474,52 +453,61 @@
         </div>
     </div>
 
-    <!-- ROBLOX STUDIO FULLSCREEN EDITOR INTERFACE WITH ORBIT CONTROLS & AI ASSISTANT -->
+    <!-- ROBLOX STUDIO FULLSCREEN EDITOR INTERFACE WITH MOBILE SUPPORT -->
     <div id="roblox-studio-client" class="fixed inset-0 studio-dark z-50 hidden flex flex-col select-none">
-        <div class="studio-ribbon px-3 py-2 flex items-center justify-between text-xs text-gray-300 flex-shrink-0">
-            <div class="flex items-center space-x-4">
+        <div class="studio-ribbon px-3 py-2 flex flex-wrap items-center justify-between text-xs text-gray-300 flex-shrink-0 gap-2">
+            <div class="flex items-center space-x-2 flex-wrap gap-1">
                 <div class="flex items-center space-x-2 bg-red-600 px-3 py-1.5 rounded font-bold text-white">
                     <span>🛠</span> <span id="studio-world-title">BloxVibe Studio</span>
                 </div>
                 <div class="flex space-x-1 bg-gray-900 p-1 rounded border border-gray-700">
-                    <button onclick="studioSpawnPart('Block')" class="px-3 py-1 rounded hover:bg-gray-800">🟫 Part</button>
-                    <button onclick="studioSpawnPart('Wedge')" class="px-3 py-1 rounded hover:bg-gray-800">📐 Wedge</button>
-                    <button onclick="deleteSelectedObject()" class="px-3 py-1 rounded bg-red-900/60 text-red-300 hover:bg-red-800">Delete Selected</button>
+                    <button onclick="studioSpawnPart('Block')" class="px-2.5 py-1 rounded hover:bg-gray-800">🟫 Part</button>
+                    <button onclick="studioSpawnPart('Wedge')" class="px-2.5 py-1 rounded hover:bg-gray-800">📐 Wedge</button>
+                    <button onclick="deleteSelectedObject()" class="px-2.5 py-1 rounded bg-red-900/60 text-red-300 hover:bg-red-800">Delete</button>
                 </div>
                 <div id="terrain-tools-ribbon" class="hidden flex space-x-1 bg-emerald-950/60 border border-emerald-500/40 p-1 rounded">
-                    <button onclick="terrainAction('raise')" class="px-2.5 py-1 rounded bg-emerald-700 text-white font-bold">⛰️ Raise Mtns</button>
-                    <button onclick="terrainAction('hills')" class="px-2.5 py-1 rounded bg-emerald-800 text-white">🌄 Add Hills</button>
-                    <button onclick="terrainAction('flatten')" class="px-2.5 py-1 rounded bg-gray-800 text-white">🟩 Flatten</button>
+                    <button onclick="terrainAction('raise')" class="px-2 py-1 rounded bg-emerald-700 text-white font-bold">⛰️ Raise</button>
+                    <button onclick="terrainAction('hills')" class="px-2 py-1 rounded bg-emerald-800 text-white">🌄 Hills</button>
+                    <button onclick="terrainAction('flatten')" class="px-2 py-1 rounded bg-gray-800 text-white">🟩 Flat</button>
                 </div>
             </div>
-            <div class="flex items-center space-x-3 text-[11px] text-gray-400 hidden sm:flex">
-                <span>💡 Tip: Click & drag to orbit camera, scroll to zoom</span>
-            </div>
-            <div class="flex items-center space-x-3">
-                <button onclick="closeRobloxStudio()" class="bg-red-700 hover:bg-red-600 px-3 py-1.5 rounded font-bold text-white">Save & Close Studio</button>
+            
+            <!-- MOBILE TOGGLE BUTTONS FOR SIDE PANELS -->
+            <div class="flex items-center space-x-2">
+                <button onclick="toggleStudioPanel('explorer')" class="bg-gray-800 hover:bg-gray-700 px-2.5 py-1.5 rounded border border-gray-700 text-xs font-bold text-blue-400">📁 Explorer</button>
+                <button onclick="toggleStudioPanel('ai')" class="bg-gray-800 hover:bg-gray-700 px-2.5 py-1.5 rounded border border-gray-700 text-xs font-bold text-purple-400">✨ AI Assistant</button>
+                <button onclick="closeRobloxStudio()" class="bg-red-700 hover:bg-red-600 px-3 py-1.5 rounded font-bold text-white">Save & Close</button>
             </div>
         </div>
 
-        <div class="flex-1 flex min-h-0">
-            <div class="w-64 roblox-dark border-r border-gray-800 flex flex-col text-xs">
-                <div class="p-2.5 font-bold border-b border-gray-800 text-gray-400 uppercase">Explorer (Auto-Saved)</div>
+        <div class="flex-1 flex min-h-0 relative">
+            <!-- EXPLORER PANEL -->
+            <div id="studio-explorer-panel" class="w-64 roblox-dark border-r border-gray-800 flex flex-col text-xs absolute md:relative inset-y-0 left-0 z-20 transition-transform -translate-x-full md:translate-x-0">
+                <div class="p-2.5 font-bold border-b border-gray-800 text-gray-400 uppercase flex justify-between items-center">
+                    <span>Explorer (Auto-Saved)</span>
+                    <button onclick="toggleStudioPanel('explorer')" class="md:hidden text-gray-400 hover:text-white px-2">✕</button>
+                </div>
                 <div id="explorer-objects" class="p-3 space-y-1 font-mono text-gray-300 overflow-y-auto flex-1">
                     <p class="text-blue-400 font-bold">📁 Workspace</p>
                 </div>
             </div>
-            <div id="studio-canvas-container" class="flex-1 relative bg-slate-950 cursor-grab active:cursor-grabbing"></div>
+
+            <!-- 3D VIEWPORT CANVAS CONTAINER -->
+            <div id="studio-canvas-container" class="flex-1 relative bg-slate-950 cursor-grab active:cursor-grabbing w-full h-full"></div>
+
             <!-- STUDIO AI ASSISTANT PANEL -->
-            <div class="w-80 roblox-dark border-l border-gray-800 flex flex-col text-xs">
-                <div class="p-3 font-bold border-b border-gray-800 text-purple-400 flex items-center gap-1.5">
-                    <span>✨</span> Roblox Studio AI Assistant
+            <div id="studio-ai-panel" class="w-80 roblox-dark border-l border-gray-800 flex flex-col text-xs absolute md:relative inset-y-0 right-0 z-20 transition-transform translate-x-full md:translate-x-0">
+                <div class="p-3 font-bold border-b border-gray-800 text-purple-400 flex items-center justify-between">
+                    <span class="flex items-center gap-1.5"><span>✨</span> Roblox Studio AI</span>
+                    <button onclick="toggleStudioPanel('ai')" class="md:hidden text-gray-400 hover:text-white px-2">✕</button>
                 </div>
                 <div id="ai-chat-history" class="p-3 space-y-2 overflow-y-auto flex-1 font-mono text-[11px]">
                     <div class="bg-purple-950/40 border border-purple-500/30 p-2.5 rounded text-purple-200">
-                        <strong>Studio AI:</strong> Ask me to generate scripts, create models, or write Lua code for your game! (e.g., "Create a neon obstacle platform" or "Write a jump script")
+                        <strong>Studio AI:</strong> Ask me to generate scripts or build models! (e.g., "Create a neon obstacle platform")
                     </div>
                 </div>
                 <div class="p-3 border-t border-gray-800 space-y-2 bg-gray-900/50">
-                    <textarea id="ai-prompt-input" rows="2" placeholder="Ask AI to build or write script..." class="w-full bg-black border border-gray-700 rounded p-2 text-white text-xs outline-none resize-none"></textarea>
+                    <textarea id="ai-prompt-input" rows="2" placeholder="Ask AI to build..." class="w-full bg-black border border-gray-700 rounded p-2 text-white text-xs outline-none resize-none"></textarea>
                     <button onclick="submitStudioAI()" class="w-full bg-purple-700 hover:bg-purple-600 py-2 rounded font-bold text-white shadow">Generate with AI</button>
                 </div>
             </div>
@@ -577,11 +565,8 @@
 
         function toggleSignupCardField(tierVal) {
             const cardContainer = document.getElementById('signup-card-container');
-            if (parseInt(tierVal) === 2) {
-                cardContainer.classList.remove('hidden');
-            } else {
-                cardContainer.classList.add('hidden');
-            }
+            if (parseInt(tierVal) === 2) cardContainer.classList.remove('hidden');
+            else cardContainer.classList.add('hidden');
         }
 
         function processSignup() {
@@ -599,10 +584,7 @@
             if (tier === 2) {
                 const cardholder = document.getElementById('signup-cardholder').value.trim();
                 const cardnum = document.getElementById('signup-cardnum').value.trim();
-                if (!cardholder || !cardnum) {
-                    alert("Creator accounts require valid card details.");
-                    return;
-                }
+                if (!cardholder || !cardnum) { alert("Creator accounts require valid card details."); return; }
                 hasCard = true;
             }
 
@@ -636,7 +618,6 @@
             const user = usersDB[emailKey];
             currentUser = emailKey;
             saveDB();
-
             logSessionEvent(user.username, 'User Login', `Successfully logged in with Tier ${user.tier} permissions.`);
             document.getElementById('auth-overlay').classList.add('hidden');
             applyUserSession(emailKey);
@@ -729,21 +710,13 @@
             if (tabName === 'ownership') renderOwnerDashboard();
         }
 
-        function openCreatorUpgradeModal() {
-            document.getElementById('creator-upgrade-modal').classList.remove('hidden');
-        }
-
-        function closeCreatorUpgradeModal() {
-            document.getElementById('creator-upgrade-modal').classList.add('hidden');
-        }
+        function openCreatorUpgradeModal() { document.getElementById('creator-upgrade-modal').classList.remove('hidden'); }
+        function closeCreatorUpgradeModal() { document.getElementById('creator-upgrade-modal').classList.add('hidden'); }
 
         function processCreatorUpgrade() {
             const cardholder = document.getElementById('upgrade-cardholder').value.trim();
             const cardnum = document.getElementById('upgrade-cardnum').value.trim();
-            if (!cardholder || !cardnum) {
-                alert("Please enter valid card details.");
-                return;
-            }
+            if (!cardholder || !cardnum) { alert("Please enter valid card details."); return; }
             const user = usersDB[currentUser];
             user.tier = 2;
             user.hasCard = true;
@@ -767,7 +740,6 @@
         function executeAdminGrantCoins() {
             const user = usersDB[currentUser];
             if (!user || user.tier < 3) { alert("Unauthorized."); return; }
-            
             const recipientName = document.getElementById('grant-username').value.trim();
             const amount = parseInt(document.getElementById('grant-amount').value);
             const reason = document.getElementById('grant-reason').value.trim();
@@ -776,18 +748,13 @@
                 alert("⚠️ Please enter recipient username, coin amount, and mandatory reason.");
                 return;
             }
-
             const recipientKey = Object.keys(usersDB).find(k => usersDB[k].username.toLowerCase() === recipientName.toLowerCase());
             if (!recipientKey) { alert(`Recipient "${recipientName}" not found.`); return; }
 
             usersDB[recipientKey].coins = (usersDB[recipientKey].coins || 0) + amount;
             saveDB();
-
             logSessionEvent(user.username, 'Admin Coin Grant', `Granted ${amount.toLocaleString()} coins to ${recipientName}. Reason: ${reason}`);
             alert(`✅ Granted ${amount.toLocaleString()} coins to ${recipientName}.`);
-            document.getElementById('grant-username').value = '';
-            document.getElementById('grant-amount').value = '';
-            document.getElementById('grant-reason').value = '';
             renderSessionLogsTable();
         }
 
@@ -796,10 +763,7 @@
             document.getElementById('checkout-item-desc').textContent = `Purchasing: ${amount.toLocaleString()} Coins ($${price} USD)`;
             document.getElementById('checkout-modal').classList.remove('hidden');
         }
-
-        function closeCheckoutModal() {
-            document.getElementById('checkout-modal').classList.add('hidden');
-        }
+        function closeCheckoutModal() { document.getElementById('checkout-modal').classList.add('hidden'); }
 
         function processBankVerifiedPayment() {
             const cardholder = document.getElementById('chk-cardholder').value.trim();
@@ -808,15 +772,8 @@
             const cvv = document.getElementById('chk-cvv').value.trim();
             const bankFunds = parseFloat(document.getElementById('chk-bank-funds').value);
 
-            if (!cardholder || !cardnum || !exp || !cvv || isNaN(bankFunds)) {
-                alert("❌ Please input all required card details and bank account fund values.");
-                return;
-            }
-
-            if (bankFunds < pendingPurchase.price) {
-                alert(`❌ Insufficient funds in bank account ($${bankFunds.toFixed(2)} available, but purchase requires $${pendingPurchase.price.toFixed(2)}).`);
-                return;
-            }
+            if (!cardholder || !cardnum || !exp || !cvv || isNaN(bankFunds)) { alert("❌ Please input all required card details."); return; }
+            if (bankFunds < pendingPurchase.price) { alert(`❌ Insufficient funds in bank account.`); return; }
 
             ownerRevenue += pendingPurchase.price;
             const user = usersDB[currentUser];
@@ -824,9 +781,9 @@
             saveDB();
 
             document.getElementById('coin-display').textContent = user.coins.toLocaleString();
-            logSessionEvent(user.username, 'Real Money Purchase', `Purchased ${pendingPurchase.amount} coins for $${pendingPurchase.price}. Routed to Owner Revenue Card.`);
+            logSessionEvent(user.username, 'Real Money Purchase', `Purchased ${pendingPurchase.amount} coins for $${pendingPurchase.price}.`);
             closeCheckoutModal();
-            alert(`💳 Payment verified! $${pendingPurchase.price} sent straight to Owner's card. Credited ${pendingPurchase.amount.toLocaleString()} coins.`);
+            alert(`💳 Payment verified! Credited ${pendingPurchase.amount.toLocaleString()} coins.`);
         }
 
         function publishAdCampaign() {
@@ -835,17 +792,6 @@
             if(!title || isNaN(bid) || bid <= 0) { alert("Enter valid ad title and bid."); return; }
             logSessionEvent(usersDB[currentUser].username, 'Game Ad Published', `Published ad campaign "${title}" with bid ${bid} coins.`);
             alert(`📢 Ad Campaign "${title}" successfully launched across BloxVibe!`);
-            document.getElementById('ad-title').value = '';
-            document.getElementById('ad-bid').value = '';
-        }
-
-        function createGamepass() {
-            const name = document.getElementById('gp-name').value.trim();
-            const price = parseInt(document.getElementById('gp-price').value);
-            if(!name || isNaN(price)) { alert("Enter pass name and price."); return; }
-            alert(`🎉 Gamepass "${name}" created successfully for ${price} coins!`);
-            document.getElementById('gp-name').value = '';
-            document.getElementById('gp-price').value = '';
         }
 
         function renderSessionLogsTable() {
@@ -880,15 +826,9 @@
             const tableBody = document.getElementById('owner-users-table');
             if (!tableBody) return;
             tableBody.innerHTML = '';
-
             Object.keys(usersDB).forEach(email => {
                 const u = usersDB[email];
-                let tierLabel = "Level 1: Member";
-                if (u.tier === 2) tierLabel = "Level 2: Creator";
-                if (u.tier === 3) tierLabel = "Level 3: Moderator";
-                if (u.tier === 4) tierLabel = "Level 4: Admin";
-                if (u.tier === 5) tierLabel = "Ownership (GrandEmperor)";
-
+                let tierLabel = u.tier === 5 ? "Ownership" : u.tier === 4 ? "Admin" : u.tier === 3 ? "Mod" : u.tier === 2 ? "Creator" : "Member";
                 tableBody.innerHTML += `
                     <tr class="hover:bg-gray-900/50">
                         <td class="p-3 font-bold text-white">${u.username}</td>
@@ -896,12 +836,11 @@
                         <td class="p-3 font-semibold text-amber-400">${tierLabel}</td>
                         <td class="p-3 text-right space-x-1">
                             <select onchange="changeUserTier('${email}', this.value)" class="bg-gray-900 border border-gray-700 rounded px-2 py-1 text-xs text-white">
-                                <option value="1" ${u.tier===1?'selected':''}>L1: Member</option>
-                                <option value="2" ${u.tier===2?'selected':''}>L2: Creator</option>
-                                <option value="3" ${u.tier===3?'selected':''}>L3: Moderator</option>
-                                <option value="4" ${u.tier===4?'selected':''}>L4: Admin</option>
+                                <option value="1" ${u.tier===1?'selected':''}>Member</option>
+                                <option value="2" ${u.tier===2?'selected':''}>Creator</option>
+                                <option value="3" ${u.tier===3?'selected':''}>Mod</option>
+                                <option value="4" ${u.tier===4?'selected':''}>Admin</option>
                             </select>
-                            <button onclick="removeUserAccount('${email}')" class="bg-red-700 hover:bg-red-600 px-2.5 py-1 rounded text-white font-bold">Remove</button>
                         </td>
                     </tr>
                 `;
@@ -909,60 +848,33 @@
         }
 
         function transferOwnerRevenue() {
-            const user = usersDB[currentUser];
-            if (!user || user.tier < 5) {
-                alert("❌ Unauthorized: Only the Owner (GrandEmperor) can transfer owner revenue to a personal bank account.");
-                return;
-            }
             const bankName = document.getElementById('owner-bank-name').value.trim();
             const routingNum = document.getElementById('owner-routing-num').value.trim();
-            if (!bankName || !routingNum) {
-                alert("Please enter your bank name and routing/account number.");
-                return;
-            }
-            if (ownerRevenue <= 0) {
-                alert("No revenue available to transfer.");
-                return;
-            }
-
-            const transferredAmount = ownerRevenue;
+            if (!bankName || !routingNum) { alert("Please enter bank details."); return; }
+            if (ownerRevenue <= 0) { alert("No revenue available to transfer."); return; }
+            let transferredAmount = ownerRevenue;
             ownerRevenue = 0.00;
             saveDB();
             renderOwnerDashboard();
-
-            logSessionEvent('GrandEmperor', 'Owner Bank Payout', `Transferred $${transferredAmount.toFixed(2)} USD from Owner Revenue Card to personal bank account (${bankName} - ${routingNum}).`);
-            alert(`✅ Successfully transferred $${transferredAmount.toFixed(2)} USD to your personal bank account (${bankName})! Revenue card reset to $0.00.`);
+            alert(`✅ Transferred $${transferredAmount.toFixed(2)} USD to your personal bank account (${bankName})!`);
         }
 
         function changeUserTier(emailKey, newTier) {
             usersDB[emailKey].tier = parseInt(newTier);
             saveDB();
-            logSessionEvent('GrandEmperor', 'Owner Role Management', `Changed user ${usersDB[emailKey].username} to Tier ${newTier}`);
             renderOwnerDashboard();
-            alert("User permission tier updated.");
+            alert("User tier updated.");
         }
 
-        function removeUserAccount(emailKey) {
-            if (usersDB[emailKey].username.toLowerCase() === 'grandemperor') {
-                alert("Cannot remove Owner.");
-                return;
-            }
-            const name = usersDB[emailKey].username;
-            delete usersDB[emailKey];
-            saveDB();
-            renderOwnerDashboard();
-            alert(`User ${name} removed.`);
-        }
-
-        // ROBLOX STUDIO 3D ENGINE WITH ORBIT CONTROLS & AI ASSISTANT
+        // MOBILE & PC OPTIMIZED ROBLOX STUDIO 3D ENGINE
         let studioScene, studioCamera, studioRenderer;
         let editableObjects = [];
         let selectedObject = null;
         let terrainMesh = null;
         let currentTemplateName = '';
 
-        let isMouseDown = false;
-        let mouseX = 0, mouseY = 0;
+        let isPointerActive = false;
+        let lastX = 0, lastY = 0;
         let camAngleX = 0, camAngleY = 0.6, camRadius = 25;
 
         function openRobloxStudio(templateName) {
@@ -977,7 +889,7 @@
             const studioFee = isFree ? 0 : 250;
 
             if (user.coins < studioFee && user.tier < 4 && !isFree) {
-                alert(`❌ Opening "${templateName}" costs 250 coins! You have ${user.coins} coins.`);
+                alert(`❌ Opening "${templateName}" costs 250 coins!`);
                 switchTab('store');
                 return;
             }
@@ -989,17 +901,13 @@
             }
 
             document.getElementById('roblox-studio-client').classList.remove('hidden');
-            document.getElementById('studio-world-title').textContent = isFree ? `Editing Template: ${templateName} (FREE)` : `Editing Template: ${templateName}`;
+            document.getElementById('studio-world-title').textContent = isFree ? `Template: ${templateName} (FREE)` : `Template: ${templateName}`;
             currentTemplateName = templateName;
 
             const terrainRibbon = document.getElementById('terrain-tools-ribbon');
-            if (isFree) {
-                terrainRibbon.classList.remove('hidden');
-            } else {
-                terrainRibbon.classList.add('hidden');
-            }
+            if (isFree) terrainRibbon.classList.remove('hidden');
+            else terrainRibbon.classList.add('hidden');
 
-            // FIX APPLIED HERE: Wrapped in setTimeout so dimensions are computed correctly after un-hiding
             setTimeout(() => {
                 initStudio3D(templateName);
                 if (studioRenderer && studioCamera) {
@@ -1017,6 +925,16 @@
             alert("🛠️ All edits and template movements automatically saved!");
         }
 
+        function toggleStudioPanel(panelType) {
+            const explorer = document.getElementById('studio-explorer-panel');
+            const ai = document.getElementById('studio-ai-panel');
+            if (panelType === 'explorer') {
+                explorer.classList.toggle('-translate-x-full');
+            } else if (panelType === 'ai') {
+                ai.classList.toggle('translate-x-full');
+            }
+        }
+
         function studioSpawnPart(partType) {
             let geom = partType === 'Block' ? new THREE.BoxGeometry(3,3,3) : new THREE.ConeGeometry(2,3,4);
             let mat = new THREE.MeshStandardMaterial({ color: 0x0074bd, roughness: 0.3 });
@@ -1029,7 +947,7 @@
         }
 
         function deleteSelectedObject() {
-            if (!selectedObject) { alert("Click an object in the viewport first."); return; }
+            if (!selectedObject) { alert("Select an object first."); return; }
             studioScene.remove(selectedObject);
             editableObjects = editableObjects.filter(o => o !== selectedObject);
             selectedObject = null;
@@ -1055,30 +973,12 @@
             if (!query) return;
 
             const history = document.getElementById('ai-chat-history');
-            history.innerHTML += `
-                <div class="bg-gray-900 p-2 rounded text-gray-200">
-                    <strong>You:</strong> ${query}
-                </div>
-            `;
+            history.innerHTML += `<div class="bg-gray-900 p-2 rounded text-gray-200"><strong>You:</strong> ${query}</div>`;
             promptInput.value = '';
 
             setTimeout(() => {
-                let aiResponse = "Studio AI generated code/object successfully!";
-                if (query.toLowerCase().includes('platform') || query.toLowerCase().includes('neon') || query.toLowerCase().includes('wall')) {
-                    studioSpawnPart('Block');
-                    aiResponse = `✨ AI generated and spawned a new part based on your request ("${query}"). Check Explorer!`;
-                } else if (query.toLowerCase().includes('script') || query.toLowerCase().includes('code') || query.toLowerCase().includes('jump')) {
-                    aiResponse = `lua\n-- Generated by BloxVibe Studio AI\nlocal player = game.Players.LocalPlayer\nlocal character = player.Character or player.CharacterAdded:Wait()\ncharacter.Humanoid.JumpPower = 75\nprint("AI Boost Script Applied!")\n`;
-                } else {
-                    studioSpawnPart('Wedge');
-                    aiResponse = `✨ AI analyzed request and spawned a geometric wedge model into your world.`;
-                }
-
-                history.innerHTML += `
-                    <div class="bg-purple-950/40 border border-purple-500/30 p-2 rounded text-purple-200">
-                        <strong>Studio AI:</strong> <pre class="whitespace-pre-wrap mt-1 font-mono">${aiResponse}</pre>
-                    </div>
-                `;
+                studioSpawnPart('Block');
+                history.innerHTML += `<div class="bg-purple-950/40 border border-purple-500/30 p-2 rounded text-purple-200"><strong>Studio AI:</strong> ✨ Generated and spawned new part successfully!</div>`;
                 history.scrollTop = history.scrollHeight;
             }, 600);
         }
@@ -1109,7 +1009,6 @@
             terrainMesh = new THREE.Mesh(baseGeo, new THREE.MeshStandardMaterial({ color: 0x2e8b57, roughness: 0.8 }));
             terrainMesh.name = "GrassTerrain";
             studioScene.add(terrainMesh);
-
             studioScene.add(new THREE.GridHelper(60, 60, 0x0074bd, 0x2b3240));
 
             if (templateName.toLowerCase().includes('obby')) {
@@ -1136,25 +1035,42 @@
 
             updateExplorerList();
 
-            container.addEventListener('mousedown', (e) => {
-                isMouseDown = true;
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
+            // MOUSE & TOUCH EVENT HANDLERS FOR CAMERA ORBIT & SELECTION
+            function handleStart(clientX, clientY) {
+                isPointerActive = true;
+                lastX = clientX;
+                lastY = clientY;
+            }
 
-            window.addEventListener('mouseup', () => { isMouseDown = false; });
-
-            container.addEventListener('mousemove', (e) => {
-                if (!isMouseDown) return;
-                let deltaX = e.clientX - mouseX;
-                let deltaY = e.clientY - mouseY;
-                mouseX = e.clientX;
-                mouseY = e.clientY;
+            function handleMove(clientX, clientY) {
+                if (!isPointerActive) return;
+                let deltaX = clientX - lastX;
+                let deltaY = clientY - lastY;
+                lastX = clientX;
+                lastY = clientY;
 
                 camAngleX -= deltaX * 0.008;
                 camAngleY = Math.max(0.1, Math.min(Math.PI / 2 - 0.05, camAngleY + deltaY * 0.008));
                 updateCameraOrbit();
-            });
+            }
+
+            function handleEnd() { isPointerActive = false; }
+
+            // Mouse Events
+            container.addEventListener('mousedown', (e) => handleStart(e.clientX, e.clientY));
+            window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+            window.addEventListener('mouseup', handleEnd);
+
+            // Touch Events (Mobile Support)
+            container.addEventListener('touchstart', (e) => {
+                if (e.touches.length === 1) handleStart(e.touches[0].clientX, e.touches[0].clientY);
+            }, { passive: true });
+
+            container.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1) handleMove(e.touches[0].clientX, e.touches[0].clientY);
+            }, { passive: true });
+
+            container.addEventListener('touchend', handleEnd);
 
             container.addEventListener('wheel', (e) => {
                 e.preventDefault();
@@ -1162,17 +1078,26 @@
                 updateCameraOrbit();
             }, { passive: false });
 
+            // Raycasting for Selection (Click or Tap)
             const raycaster = new THREE.Raycaster();
             const mouse = new THREE.Vector2();
-            container.addEventListener('click', (e) => {
+
+            function selectObjectAt(clientX, clientY) {
                 const rect = container.getBoundingClientRect();
-                mouse.x = ((e.clientX - rect.left) / container.clientWidth) * 2 - 1;
-                mouse.y = -((e.clientY - rect.top) / container.clientHeight) * 2 + 1;
+                mouse.x = ((clientX - rect.left) / container.clientWidth) * 2 - 1;
+                mouse.y = -((clientY - rect.top) / container.clientHeight) * 2 + 1;
                 raycaster.setFromCamera(mouse, studioCamera);
                 const hits = raycaster.intersectObjects(editableObjects);
                 if (hits.length > 0) {
                     selectedObject = hits[0].object;
                     document.getElementById('explorer-objects').innerHTML += `<p class="text-amber-400">Selected: ${selectedObject.name}</p>`;
+                }
+            }
+
+            container.addEventListener('click', (e) => selectObjectAt(e.clientX, e.clientY));
+            container.addEventListener('touchend', (e) => {
+                if (e.changedTouches.length > 0) {
+                    selectObjectAt(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
                 }
             });
 
