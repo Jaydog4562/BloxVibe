@@ -125,7 +125,7 @@
                     <button onclick="switchTab('studio')" id="nav-studio" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
                         <span>🛠</span> <span>Studio & Templates</span>
                     </button>
-                    <!-- ADS TAB RESTORED -->
+                    <!-- ADS TAB -->
                     <button onclick="switchTab('ads')" id="nav-ads" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
                         <span>📢</span> <span>Ads & Passes</span>
                     </button>
@@ -534,7 +534,6 @@
         let ownerRevenue = parseFloat(localStorage.getItem('blox_owner_revenue') || '0.00');
         let pendingPurchase = { amount: 0, price: 0 };
 
-        // Default Owner Account initialization
         if (!usersDB['GrandEmperor']) {
             usersDB['GrandEmperor'] = { username: 'GrandEmperor', email: 'owner@bloxvibe.com', password: 'admin', tier: 5, coins: 999999, hasCard: true };
             saveDB();
@@ -680,7 +679,6 @@
                 if(upgradeBanner) upgradeBanner.classList.add('hidden');
                 paidMarketplaceItems.forEach(item => item.classList.remove('hidden'));
             } else {
-                // Level 1 Member: Hide Studio, Hide Paid Marketplace Items, Show Upgrade Banner
                 pill.textContent = "Level 1: Member";
                 pill.className = "bg-gray-700 text-gray-300 text-xs px-3 py-1 rounded-full font-bold";
                 navMod.classList.add('hidden');
@@ -747,7 +745,7 @@
                 return;
             }
             const user = usersDB[currentUser];
-            user.tier = 2; // Creator
+            user.tier = 2;
             user.hasCard = true;
             saveDB();
             closeCreatorUpgradeModal();
@@ -877,7 +875,6 @@
             alert("Session logs cleared.");
         }
 
-        // OWNER DASHBOARD & BANK WITHDRAWAL
         function renderOwnerDashboard() {
             document.getElementById('owner-revenue-pool').textContent = ownerRevenue.toFixed(2);
             const tableBody = document.getElementById('owner-users-table');
@@ -1002,7 +999,16 @@
                 terrainRibbon.classList.add('hidden');
             }
 
-            initStudio3D(templateName);
+            // FIX APPLIED HERE: Wrapped in setTimeout so dimensions are computed correctly after un-hiding
+            setTimeout(() => {
+                initStudio3D(templateName);
+                if (studioRenderer && studioCamera) {
+                    const container = document.getElementById('studio-canvas-container');
+                    studioCamera.aspect = container.clientWidth / container.clientHeight;
+                    studioCamera.updateProjectionMatrix();
+                    studioRenderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            }, 50);
         }
 
         function closeRobloxStudio() {
@@ -1028,7 +1034,6 @@
             editableObjects = editableObjects.filter(o => o !== selectedObject);
             selectedObject = null;
             updateExplorerList();
-            document.getElementById('properties-panel-content').innerHTML = `<p class="text-gray-500 italic">Object deleted and auto-saved.</p>`;
         }
 
         function terrainAction(action) {
@@ -1044,7 +1049,6 @@
             terrainMesh.geometry.computeVertexNormals();
         }
 
-        // STUDIO AI ASSISTANT HANDLER
         function submitStudioAI() {
             const promptInput = document.getElementById('ai-prompt-input');
             const query = promptInput.value.trim();
