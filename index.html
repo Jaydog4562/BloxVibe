@@ -9,10 +9,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; touch-action: manipulation; overflow-x: hidden; }
-        .roblox-blue { background-color: #0074bd; }
-        .roblox-blue:hover { background-color: #005a96; }
-        .roblox-dark { background-color: #111827; }
-        .roblox-card { background-color: #1f2937; border: 1px solid #374151; }
+        .bloxvibe-blue { background-color: #0074bd; }
+        .bloxvibe-blue:hover { background-color: #005a96; }
+        .bloxvibe-dark { background-color: #111827; }
+        .bloxvibe-card { background-color: #1f2937; border: 1px solid #374151; }
         .studio-dark { background-color: #181c24; border-color: #2b3240; }
         .studio-ribbon { background-color: #212631; border-bottom: 1px solid #303846; }
     </style>
@@ -31,9 +31,9 @@
 
         <!-- AUTHENTICATION OVERLAY -->
         <div id="auth-overlay" class="fixed inset-0 bg-slate-950 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-            <div class="roblox-card w-full max-w-md p-5 sm:p-8 rounded-2xl shadow-2xl border border-gray-800 space-y-5 my-auto max-h-[90vh] overflow-y-auto">
+            <div class="bloxvibe-card w-full max-w-md p-5 sm:p-8 rounded-2xl shadow-2xl border border-gray-800 space-y-5 my-auto max-h-[90vh] overflow-y-auto">
                 <div class="text-center space-y-2">
-                    <div class="w-12 h-12 roblox-blue rounded-xl mx-auto flex items-center justify-center font-black text-2xl italic tracking-tighter shadow-lg">BV</div>
+                    <div class="w-12 h-12 bloxvibe-blue rounded-xl mx-auto flex items-center justify-center font-black text-2xl italic tracking-tighter shadow-lg">BV</div>
                     <h1 class="text-2xl font-extrabold tracking-tight">BloxVibe Portal</h1>
                     <p class="text-xs text-gray-400">Multi-Tier Permission & Studio Engine</p>
                 </div>
@@ -53,7 +53,7 @@
                         <label class="text-xs text-gray-400 font-medium">Password</label>
                         <input type="password" id="login-password" placeholder="••••••••" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-3 text-sm text-white outline-none focus:border-blue-500 transition">
                     </div>
-                    <button onclick="processLogin()" class="w-full roblox-blue py-3 rounded-lg text-sm font-bold shadow-lg transition flex items-center justify-center gap-2">
+                    <button onclick="processLogin()" class="w-full bloxvibe-blue py-3 rounded-lg text-sm font-bold shadow-lg transition flex items-center justify-center gap-2">
                         <span>⚡</span> Sign In
                     </button>
                 </div>
@@ -101,11 +101,11 @@
         </div>
 
         <!-- SIDEBAR NAVIGATION -->
-        <aside class="w-full md:w-64 roblox-dark flex flex-col justify-between border-b md:border-b-0 md:border-r border-gray-800 select-none flex-shrink-0">
+        <aside class="w-full md:w-64 bloxvibe-dark flex flex-col justify-between border-b md:border-b-0 md:border-r border-gray-800 select-none flex-shrink-0">
             <div>
                 <div class="p-4 flex items-center justify-between">
                     <div class="flex items-center space-x-3">
-                        <div class="w-9 h-9 roblox-blue rounded-lg flex items-center justify-center font-black text-xl italic tracking-tighter shadow-lg">BV</div>
+                        <div class="w-9 h-9 bloxvibe-blue rounded-lg flex items-center justify-center font-black text-xl italic tracking-tighter shadow-lg">BV</div>
                         <span class="text-xl font-bold tracking-tight">BloxVibe</span>
                     </div>
                     <span id="badge-role" class="text-xs bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2.5 py-1 rounded-full font-semibold">Ownership</span>
@@ -154,7 +154,7 @@
 
         <!-- MAIN CONTENT AREA -->
         <main class="flex-1 flex flex-col min-h-0 overflow-y-auto pb-16 md:pb-0">
-            <header class="h-16 roblox-dark border-b border-gray-800 flex items-center justify-between px-4 sm:px-6 md:px-8 sticky top-0 z-10">
+            <header class="h-16 bloxvibe-dark border-b border-gray-800 flex items-center justify-between px-4 sm:px-6 md:px-8 sticky top-0 z-10">
                 <div class="flex items-center space-x-3">
                     <span id="header-tier-pill" class="bg-amber-500/20 text-amber-400 text-xs px-3 py-1 rounded-full font-bold">Ownership Tier</span>
                 </div>
@@ -178,26 +178,26 @@
                     </div>
 
                     <!-- BECOME A CREATOR BANNER -->
-                    <div id="member-upgrade-banner" class="hidden roblox-card rounded-2xl p-5 sm:p-6 bg-gradient-to-r from-blue-950 via-gray-900 to-indigo-950 border border-blue-500/40 space-y-3">
+                    <div id="member-upgrade-banner" class="hidden bloxvibe-card rounded-2xl p-5 sm:p-6 bg-gradient-to-r from-blue-950 via-gray-900 to-indigo-950 border border-blue-500/40 space-y-3">
                         <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Member Account</span>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white">Unlock Roblox Studio & Paid Marketplace Items</h2>
-                        <p class="text-xs sm:text-sm text-gray-300">Upgrade to a Creator account by registering your card details. You'll gain instant access to Roblox Studio, AI generation tools, and all paid templates!</p>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">Unlock BloxVibe Studio & Paid Marketplace Items</h2>
+                        <p class="text-xs sm:text-sm text-gray-300">Upgrade to a Creator account by registering your card details. You'll gain instant access to BloxVibe Studio, AI generation tools, and all paid templates!</p>
                         <button onclick="openCreatorUpgradeModal()" class="bg-blue-600 hover:bg-blue-500 px-5 py-2.5 rounded-xl font-bold text-white text-xs shadow-lg transition">✨ Upgrade to Creator Now</button>
                     </div>
 
-                    <div class="roblox-card rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-gray-900 via-gray-800 to-emerald-950/40">
+                    <div class="bloxvibe-card rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-gray-900 via-gray-800 to-emerald-950/40">
                         <div class="space-y-3 max-w-lg">
                             <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Featured Free Template</span>
                             <h2 class="text-xl sm:text-3xl font-extrabold text-emerald-300">Grass & Terrain Landscape</h2>
                             <p class="text-gray-300 text-xs sm:text-sm">Sculpt mountains, hills, raise terrain and build worlds with 3D studio orbit controls. (100% Free for Everyone!)</p>
                             <div class="flex items-center space-x-4 pt-2">
-                                <button onclick="openRobloxStudio('Grass & Terrain Landscape')" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl font-bold text-white shadow-lg flex items-center space-x-2 active:scale-95 transition">
+                                <button onclick="openBloxVibeStudio('Grass & Terrain Landscape')" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl font-bold text-white shadow-lg flex items-center space-x-2 active:scale-95 transition">
                                     <span>🛠</span> <span>Open Studio (Free)</span>
                                 </button>
                                 <span class="text-xs text-emerald-400 font-bold">🪙 FREE (0 Coins)</span>
                             </div>
                         </div>
-                        <div class="w-full md:w-80 h-40 md:h-48 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openRobloxStudio('Grass & Terrain Landscape')">
+                        <div class="w-full md:w-80 h-40 md:h-48 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openBloxVibeStudio('Grass & Terrain Landscape')">
                             <span class="text-5xl group-hover:scale-110 transition duration-300">⛰</span>
                         </div>
                     </div>
@@ -207,25 +207,25 @@
                 <div id="tab-games" class="hidden space-y-4">
                     <h2 class="text-xl sm:text-2xl font-bold">Templates & Game Worlds</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-                        <div class="roblox-card p-4 rounded-xl space-y-3 border-emerald-500/50">
+                        <div class="bloxvibe-card p-4 rounded-xl space-y-3 border-emerald-500/50">
                             <div class="h-28 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">⛰️</div>
                             <h4 class="font-bold text-sm text-emerald-300">Grass & Terrain Landscape</h4>
-                            <button onclick="openRobloxStudio('Grass & Terrain Landscape')" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2 rounded-lg text-xs font-bold text-white">Open Studio (FREE 🪙)</button>
+                            <button onclick="openBloxVibeStudio('Grass & Terrain Landscape')" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2 rounded-lg text-xs font-bold text-white">Open Studio (FREE 🪙)</button>
                         </div>
-                        <div class="roblox-card p-4 rounded-xl space-y-3 paid-marketplace-item">
+                        <div class="bloxvibe-card p-4 rounded-xl space-y-3 paid-marketplace-item">
                             <div class="h-28 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">🏃</div>
                             <h4 class="font-bold text-sm">Obstacle Course (Obby)</h4>
-                            <button onclick="openRobloxStudio('Obstacle Course (Obby)')" class="w-full roblox-blue py-2 rounded-lg text-xs font-bold">Open Studio (250 🪙)</button>
+                            <button onclick="openBloxVibeStudio('Obstacle Course (Obby)')" class="w-full bloxvibe-blue py-2 rounded-lg text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
-                        <div class="roblox-card p-4 rounded-xl space-y-3 paid-marketplace-item">
+                        <div class="bloxvibe-card p-4 rounded-xl space-y-3 paid-marketplace-item">
                             <div class="h-28 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">🏙</div>
                             <h4 class="font-bold text-sm">City Roleplay World</h4>
-                            <button onclick="openRobloxStudio('City Roleplay World')" class="w-full roblox-blue py-2 rounded-lg text-xs font-bold">Open Studio (250 🪙)</button>
+                            <button onclick="openBloxVibeStudio('City Roleplay World')" class="w-full bloxvibe-blue py-2 rounded-lg text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
-                        <div class="roblox-card p-4 rounded-xl space-y-3 paid-marketplace-item">
+                        <div class="bloxvibe-card p-4 rounded-xl space-y-3 paid-marketplace-item">
                             <div class="h-28 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">🎖</div>
                             <h4 class="font-bold text-sm">Military Base / Outpost</h4>
-                            <button onclick="openRobloxStudio('Military Base Outpost')" class="w-full roblox-blue py-2 rounded-lg text-xs font-bold">Open Studio (250 🪙)</button>
+                            <button onclick="openBloxVibeStudio('Military Base Outpost')" class="w-full bloxvibe-blue py-2 rounded-lg text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
                     </div>
                 </div>
@@ -244,17 +244,17 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="roblox-card p-5 rounded-xl text-center space-y-3">
+                        <div class="bloxvibe-card p-5 rounded-xl text-center space-y-3">
                             <div class="text-3xl my-2">💰</div>
                             <h4 class="font-bold text-base">1,400 Coins</h4>
-                            <button onclick="openCheckoutModal(1400, 4.99)" class="w-full roblox-blue py-2.5 rounded-lg text-xs font-bold">Buy for $4.99</button>
+                            <button onclick="openCheckoutModal(1400, 4.99)" class="w-full bloxvibe-blue py-2.5 rounded-lg text-xs font-bold">Buy for $4.99</button>
                         </div>
-                        <div class="roblox-card p-5 rounded-xl text-center space-y-3 border-emerald-500/50">
+                        <div class="bloxvibe-card p-5 rounded-xl text-center space-y-3 border-emerald-500/50">
                             <div class="text-3xl my-2">🪙</div>
                             <h4 class="font-bold text-base">4,800 Coins</h4>
                             <button onclick="openCheckoutModal(4800, 14.99)" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2.5 rounded-lg text-xs font-bold">Buy for $14.99</button>
                         </div>
-                        <div class="roblox-card p-5 rounded-xl text-center space-y-3">
+                        <div class="bloxvibe-card p-5 rounded-xl text-center space-y-3">
                             <div class="text-3xl my-2">💎</div>
                             <h4 class="font-bold text-base">15,000 Coins</h4>
                             <button onclick="openCheckoutModal(15000, 39.99)" class="w-full bg-amber-600 hover:bg-amber-500 py-2.5 rounded-lg text-xs font-bold">Buy for $39.99</button>
@@ -270,25 +270,25 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="roblox-card p-5 rounded-xl space-y-3 border-emerald-500/40">
+                        <div class="bloxvibe-card p-5 rounded-xl space-y-3 border-emerald-500/40">
                             <h3 class="font-bold text-sm text-emerald-400">⛰️ Grass & Terrain Landscape (FREE)</h3>
-                            <p class="text-xs text-gray-400">Equipped with Roblox Studio-style tools to raise mountains, sculpt hills, and add grass.</p>
-                            <button onclick="openRobloxStudio('Grass & Terrain Landscape')" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2.5 rounded text-xs font-bold text-white">Open Studio (FREE)</button>
+                            <p class="text-xs text-gray-400">Equipped with BloxVibe Studio-style tools to raise mountains, sculpt hills, and add grass.</p>
+                            <button onclick="openBloxVibeStudio('Grass & Terrain Landscape')" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2.5 rounded text-xs font-bold text-white">Open Studio (FREE)</button>
                         </div>
-                        <div class="roblox-card p-5 rounded-xl space-y-3">
+                        <div class="bloxvibe-card p-5 rounded-xl space-y-3">
                             <h3 class="font-bold text-sm text-blue-400">🏃 Obstacle Course (Obby)</h3>
                             <p class="text-xs text-gray-400">Preloaded obstacle course platform template ready to edit or delete.</p>
-                            <button onclick="openRobloxStudio('Obstacle Course (Obby)')" class="w-full roblox-blue py-2.5 rounded text-xs font-bold">Open Studio (250 🪙)</button>
+                            <button onclick="openBloxVibeStudio('Obstacle Course (Obby)')" class="w-full bloxvibe-blue py-2.5 rounded text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
-                        <div class="roblox-card p-5 rounded-xl space-y-3">
-                            <h3 class="font-bold text-sm text-purple-400">🏙️ City Roleplay World</h3>
+                        <div class="bloxvibe-card p-5 rounded-xl space-y-3">
+                            <h3 class="font-bold text-sm text-purple-400">🏙️️ City Roleplay World</h3>
                             <p class="text-xs text-gray-400">Urban city buildings and roads for roleplay communities.</p>
-                            <button onclick="openRobloxStudio('City Roleplay World')" class="w-full roblox-blue py-2.5 rounded text-xs font-bold">Open Studio (250 🪙)</button>
+                            <button onclick="openBloxVibeStudio('City Roleplay World')" class="w-full bloxvibe-blue py-2.5 rounded text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
-                        <div class="roblox-card p-5 rounded-xl space-y-3">
+                        <div class="bloxvibe-card p-5 rounded-xl space-y-3">
                             <h3 class="font-bold text-sm text-red-400">🎖️ Military Base / Outpost</h3>
                             <p class="text-xs text-gray-400">Bunker walls, watchtowers, and military defense spawn zones.</p>
-                            <button onclick="openRobloxStudio('Military Base Outpost')" class="w-full roblox-blue py-2.5 rounded text-xs font-bold">Open Studio (250 🪙)</button>
+                            <button onclick="openBloxVibeStudio('Military Base Outpost')" class="w-full bloxvibe-blue py-2.5 rounded text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
                     </div>
                 </div>
@@ -296,13 +296,13 @@
                 <!-- ADS & PASSES TAB -->
                 <div id="tab-ads" class="hidden space-y-6">
                     <h2 class="text-xl sm:text-2xl font-bold">Ads & Gamepasses</h2>
-                    <div class="roblox-card p-5 rounded-xl space-y-3">
+                    <div class="bloxvibe-card p-5 rounded-xl space-y-3">
                         <h3 class="font-bold text-sm text-blue-400">📢 Create Game Ad Campaign</h3>
                         <p class="text-xs text-gray-400">Promote your game across BloxVibe to attract players and grow your community.</p>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             <input type="text" id="ad-title" placeholder="Ad Campaign Title" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
                             <input type="number" id="ad-bid" placeholder="Bid Amount in Coins" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
-                            <button onclick="publishAdCampaign()" class="roblox-blue py-2 rounded text-xs font-bold text-white">Launch Campaign</button>
+                            <button onclick="publishAdCampaign()" class="bloxvibe-blue py-2 rounded text-xs font-bold text-white">Launch Campaign</button>
                         </div>
                     </div>
                 </div>
@@ -317,7 +317,7 @@
                         <button onclick="clearSessionLogs()" class="bg-red-900/60 hover:bg-red-800 text-red-200 px-3 py-1.5 rounded text-xs font-bold border border-red-700">Clear Logs</button>
                     </div>
 
-                    <div id="admin-coin-grant-box" class="roblox-card p-5 rounded-xl space-y-3 border-purple-500/40">
+                    <div id="admin-coin-grant-box" class="bloxvibe-card p-5 rounded-xl space-y-3 border-purple-500/40">
                         <h3 class="font-bold text-sm text-purple-400">🎁 Admin Coin Grant Tool (Reason Required)</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="text" id="grant-username" placeholder="Recipient Username" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
@@ -327,7 +327,7 @@
                         <button onclick="executeAdminGrantCoins()" class="bg-purple-700 hover:bg-purple-600 px-4 py-2 rounded text-xs font-bold text-white">Send Coins with Reason Log</button>
                     </div>
 
-                    <div class="roblox-card p-5 rounded-xl space-y-3">
+                    <div class="bloxvibe-card p-5 rounded-xl space-y-3">
                         <h3 class="font-bold text-white text-sm">📋 Automated Session Exit & Action Logs</h3>
                         <div class="overflow-x-auto max-h-96">
                             <table class="w-full text-left text-xs">
@@ -363,7 +363,7 @@
                         </div>
                     </div>
 
-                    <div class="roblox-card p-5 rounded-xl space-y-4">
+                    <div class="bloxvibe-card p-5 rounded-xl space-y-4">
                         <h3 class="font-bold text-amber-400 text-sm">🛡️ User Permission Tier & Admin Management</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-xs">
@@ -387,7 +387,7 @@
 
     <!-- BANK & CARD CHECKOUT MODAL -->
     <div id="checkout-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
-        <div class="roblox-card w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border border-gray-700">
+        <div class="bloxvibe-card w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border border-gray-700">
             <div class="flex items-center justify-between pb-3 border-b border-gray-800">
                 <h3 class="font-bold text-sm text-emerald-400 flex items-center gap-2"><span>💳</span> Bank & Card Funds Verification</h3>
                 <button onclick="closeCheckoutModal()" class="text-gray-400 hover:text-white text-sm">✕</button>
@@ -423,13 +423,13 @@
 
     <!-- CREATOR UPGRADE MODAL -->
     <div id="creator-upgrade-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
-        <div class="roblox-card w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border border-blue-500/40">
+        <div class="bloxvibe-card w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border border-blue-500/40">
             <div class="flex items-center justify-between pb-3 border-b border-gray-800">
                 <h3 class="font-bold text-sm text-blue-400 flex items-center gap-2"><span>✨</span> Upgrade to Creator Account</h3>
                 <button onclick="closeCreatorUpgradeModal()" class="text-gray-400 hover:text-white text-sm">✕</button>
             </div>
             <div class="space-y-3 text-xs">
-                <p class="text-gray-300">Enter your card details to unlock Roblox Studio, AI generation tools, and paid marketplace templates.</p>
+                <p class="text-gray-300">Enter your card details to unlock BloxVibe Studio, AI generation tools, and paid marketplace templates.</p>
                 <div class="space-y-1">
                     <label class="text-gray-400">Cardholder Name</label>
                     <input type="text" id="upgrade-cardholder" placeholder="John Doe" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-white">
@@ -453,8 +453,8 @@
         </div>
     </div>
 
-    <!-- ROBLOX STUDIO FULLSCREEN EDITOR INTERFACE WITH MOBILE SUPPORT -->
-    <div id="roblox-studio-client" class="fixed inset-0 studio-dark z-50 hidden flex flex-col select-none">
+    <!-- BLOXVIBE STUDIO FULLSCREEN EDITOR INTERFACE WITH MOBILE SUPPORT -->
+    <div id="bloxvibe-studio-client" class="fixed inset-0 studio-dark z-50 hidden flex flex-col select-none">
         <div class="studio-ribbon px-3 py-2 flex flex-wrap items-center justify-between text-xs text-gray-300 flex-shrink-0 gap-2">
             <div class="flex items-center space-x-2 flex-wrap gap-1">
                 <div class="flex items-center space-x-2 bg-red-600 px-3 py-1.5 rounded font-bold text-white">
@@ -476,13 +476,13 @@
             <div class="flex items-center space-x-2">
                 <button onclick="toggleStudioPanel('explorer')" class="bg-gray-800 hover:bg-gray-700 px-2.5 py-1.5 rounded border border-gray-700 text-xs font-bold text-blue-400">📁 Explorer</button>
                 <button onclick="toggleStudioPanel('ai')" class="bg-gray-800 hover:bg-gray-700 px-2.5 py-1.5 rounded border border-gray-700 text-xs font-bold text-purple-400">✨ AI Assistant</button>
-                <button onclick="closeRobloxStudio()" class="bg-red-700 hover:bg-red-600 px-3 py-1.5 rounded font-bold text-white">Save & Close</button>
+                <button onclick="closeBloxVibeStudio()" class="bg-red-700 hover:bg-red-600 px-3 py-1.5 rounded font-bold text-white">Save & Close</button>
             </div>
         </div>
 
         <div class="flex-1 flex min-h-0 relative">
             <!-- EXPLORER PANEL -->
-            <div id="studio-explorer-panel" class="w-64 roblox-dark border-r border-gray-800 flex flex-col text-xs absolute md:relative inset-y-0 left-0 z-20 transition-transform -translate-x-full md:translate-x-0">
+            <div id="studio-explorer-panel" class="w-64 bloxvibe-dark border-r border-gray-800 flex flex-col text-xs absolute md:relative inset-y-0 left-0 z-20 transition-transform -translate-x-full md:translate-x-0">
                 <div class="p-2.5 font-bold border-b border-gray-800 text-gray-400 uppercase flex justify-between items-center">
                     <span>Explorer (Auto-Saved)</span>
                     <button onclick="toggleStudioPanel('explorer')" class="md:hidden text-gray-400 hover:text-white px-2">✕</button>
@@ -496,9 +496,9 @@
             <div id="studio-canvas-container" class="flex-1 relative bg-slate-950 cursor-grab active:cursor-grabbing w-full h-full"></div>
 
             <!-- STUDIO AI ASSISTANT PANEL -->
-            <div id="studio-ai-panel" class="w-80 roblox-dark border-l border-gray-800 flex flex-col text-xs absolute md:relative inset-y-0 right-0 z-20 transition-transform translate-x-full md:translate-x-0">
+            <div id="studio-ai-panel" class="w-80 bloxvibe-dark border-l border-gray-800 flex flex-col text-xs absolute md:relative inset-y-0 right-0 z-20 transition-transform translate-x-full md:translate-x-0">
                 <div class="p-3 font-bold border-b border-gray-800 text-purple-400 flex items-center justify-between">
-                    <span class="flex items-center gap-1.5"><span>✨</span> Roblox Studio AI</span>
+                    <span class="flex items-center gap-1.5"><span>✨</span> BloxVibe Studio AI</span>
                     <button onclick="toggleStudioPanel('ai')" class="md:hidden text-gray-400 hover:text-white px-2">✕</button>
                 </div>
                 <div id="ai-chat-history" class="p-3 space-y-2 overflow-y-auto flex-1 font-mono text-[11px]">
@@ -724,7 +724,7 @@
             closeCreatorUpgradeModal();
             applyUserSession(currentUser);
             logSessionEvent(user.username, 'Creator Upgrade', 'Added card details and upgraded to Creator tier.');
-            alert("✨ Success! You are now a Creator. Roblox Studio and paid marketplace templates are unlocked.");
+            alert("✨ Success! You are now a Creator. BloxVibe Studio and paid marketplace templates are unlocked.");
         }
 
         function triggerAdminBypassCoins() {
@@ -866,7 +866,7 @@
             alert("User tier updated.");
         }
 
-        // MOBILE & PC OPTIMIZED ROBLOX STUDIO 3D ENGINE
+        // MOBILE & PC OPTIMIZED BLOXVIBE STUDIO 3D ENGINE
         let studioScene, studioCamera, studioRenderer;
         let editableObjects = [];
         let selectedObject = null;
@@ -877,7 +877,7 @@
         let lastX = 0, lastY = 0;
         let camAngleX = 0, camAngleY = 0.6, camRadius = 25;
 
-        function openRobloxStudio(templateName) {
+        function openBloxVibeStudio(templateName) {
             const user = usersDB[currentUser];
             if (user.tier === 1 && !user.hasCard) {
                 alert("❌ Studio access requires a Creator account with card details.");
@@ -900,7 +900,7 @@
                 document.getElementById('coin-display').textContent = user.coins.toLocaleString();
             }
 
-            document.getElementById('roblox-studio-client').classList.remove('hidden');
+            document.getElementById('bloxvibe-studio-client').classList.remove('hidden');
             document.getElementById('studio-world-title').textContent = isFree ? `Template: ${templateName} (FREE)` : `Template: ${templateName}`;
             currentTemplateName = templateName;
 
@@ -919,8 +919,8 @@
             }, 50);
         }
 
-        function closeRobloxStudio() {
-            document.getElementById('roblox-studio-client').classList.add('hidden');
+        function closeBloxVibeStudio() {
+            document.getElementById('bloxvibe-studio-client').classList.add('hidden');
             logSessionEvent(usersDB[currentUser].username, 'Studio Auto-Saved', `Saved changes for template: ${currentTemplateName}`);
             alert("🛠️ All edits and template movements automatically saved!");
         }
@@ -1119,7 +1119,7 @@
         }
 
         function animateStudio() {
-            if (document.getElementById('roblox-studio-client').classList.contains('hidden')) return;
+            if (document.getElementById('bloxvibe-studio-client').classList.contains('hidden')) return;
             requestAnimationFrame(animateStudio);
             studioRenderer.render(studioScene, studioCamera);
         }
