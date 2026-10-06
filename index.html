@@ -116,23 +116,24 @@
                         <span>🏠</span> <span>Home</span>
                     </button>
                     <button onclick="switchTab('games')" id="nav-games" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
-                        <span>🎮</span> <span>Communities & Games</span>
-                    </button>
-                    <button onclick="switchTab('realestate')" id="nav-realestate" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-emerald-400 hover:bg-emerald-950/40 border border-emerald-900/30 transition">
-                        <span>🧭</span> <span>Contract & Compass</span>
+                        <span>🎮</span> <span>Games</span>
                     </button>
                     <button onclick="switchTab('store')" id="nav-store" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
                         <span>🛒</span> <span>Store & Coins</span>
                     </button>
+                    <!-- STUDIO TAB -->
                     <button onclick="switchTab('studio')" id="nav-studio" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
                         <span>🛠</span> <span>Studio & Templates</span>
                     </button>
+                    <!-- ADS TAB -->
                     <button onclick="switchTab('ads')" id="nav-ads" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
                         <span>📢</span> <span>Ads & Passes</span>
                     </button>
+                    <!-- MODERATION & LOGS TAB -->
                     <button onclick="switchTab('moderation')" id="nav-moderation" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-red-400 hover:bg-red-950/40 border border-red-900/50 transition">
                         <span>🛡</span> <span>Mod & Session Logs</span>
                     </button>
+                    <!-- OWNERSHIP & ADMIN MANAGEMENT TAB -->
                     <button onclick="switchTab('ownership')" id="nav-ownership" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-amber-400 hover:bg-amber-950/40 border border-amber-900/50 transition">
                         <span>👑</span> <span>Owner Dashboard</span>
                     </button>
@@ -161,6 +162,7 @@
                     <button onclick="switchTab('store')" class="bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium border border-gray-700 flex items-center space-x-1.5">
                         <span>🪙</span> <span id="coin-display" class="text-amber-400 font-bold">0</span>
                     </button>
+                    <!-- ADMIN BYPASS BUTTON -->
                     <button id="admin-bypass-btn" onclick="triggerAdminBypassCoins()" class="hidden bg-purple-700 hover:bg-purple-600 px-3 py-1.5 rounded-lg text-xs font-bold text-white shadow">⚡ Bypass Unlimited Coins</button>
                     <button onclick="logoutUser()" class="text-xs px-3 py-2 bg-gray-800 hover:bg-red-900/40 rounded-lg border border-gray-700 text-gray-300 font-semibold">Logout</button>
                 </div>
@@ -172,91 +174,58 @@
                 <div id="tab-home" class="space-y-6">
                     <div>
                         <h1 id="welcome-heading" class="text-xl sm:text-2xl font-bold tracking-tight">Welcome back, GrandEmperor</h1>
-                        <p class="text-xs sm:text-sm text-gray-400 mt-1">All user states, communities, and studio assets are automatically synced.</p>
+                        <p class="text-xs sm:text-sm text-gray-400 mt-1">All user states, maps, and activity logs are automatically saved.</p>
                     </div>
 
+                    <!-- BECOME A CREATOR BANNER -->
                     <div id="member-upgrade-banner" class="hidden bloxvibe-card rounded-2xl p-5 sm:p-6 bg-gradient-to-r from-blue-950 via-gray-900 to-indigo-950 border border-blue-500/40 space-y-3">
                         <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Member Account</span>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white">Unlock BloxVibe Studio & Custom Community Templates</h2>
-                        <p class="text-xs sm:text-sm text-gray-300">Upgrade to a Creator account by registering your card details to access VPD Roleplay, Military Bases, and AI building tools.</p>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">Unlock BloxVibe Studio & Paid Marketplace Items</h2>
+                        <p class="text-xs sm:text-sm text-gray-300">Upgrade to a Creator account by registering your card details. You'll gain instant access to BloxVibe Studio, AI generation tools, and all paid templates!</p>
                         <button onclick="openCreatorUpgradeModal()" class="bg-blue-600 hover:bg-blue-500 px-5 py-2.5 rounded-xl font-bold text-white text-xs shadow-lg transition">✨ Upgrade to Creator Now</button>
                     </div>
 
-                    <!-- FEATURED COMMUNITY BANNER: VANCOUVER POLICE DEPARTMENT -->
-                    <div class="bloxvibe-card rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-blue-950 via-gray-900 to-indigo-950/60 border border-blue-500/30">
+                    <div class="bloxvibe-card rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-gray-900 via-gray-800 to-emerald-950/40">
                         <div class="space-y-3 max-w-lg">
-                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Featured Community Project</span>
-                            <h2 class="text-xl sm:text-3xl font-extrabold text-blue-300">Vancouver Police Department (VPD)</h2>
-                            <p class="text-gray-300 text-xs sm:text-sm">Official custom roleplay precinct world featuring vehicle spawns, dispatcher audio systems, and academy training grounds.</p>
+                            <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Featured Free Template</span>
+                            <h2 class="text-xl sm:text-3xl font-extrabold text-emerald-300">Grass & Terrain Landscape</h2>
+                            <p class="text-gray-300 text-xs sm:text-sm">Sculpt mountains, hills, raise terrain and build worlds with 3D studio orbit controls. (100% Free for Everyone!)</p>
                             <div class="flex items-center space-x-4 pt-2">
-                                <button onclick="openBloxVibeStudio('Vancouver Police Department')" class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-xl font-bold text-white shadow-lg flex items-center space-x-2 active:scale-95 transition">
-                                    <span>🛡</span> <span>Launch VPD Studio</span>
+                                <button onclick="openBloxVibeStudio('Grass & Terrain Landscape')" class="bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-xl font-bold text-white shadow-lg flex items-center space-x-2 active:scale-95 transition">
+                                    <span>🛠</span> <span>Open Studio (Free)</span>
                                 </button>
-                                <span class="text-xs text-blue-400 font-bold">🪙 Roleplay Ready</span>
+                                <span class="text-xs text-emerald-400 font-bold">🪙 FREE (0 Coins)</span>
                             </div>
                         </div>
-                        <div class="w-full md:w-80 h-40 md:h-48 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openBloxVibeStudio('Vancouver Police Department')">
-                            <span class="text-5xl group-hover:scale-110 transition duration-300">🚓</span>
+                        <div class="w-full md:w-80 h-40 md:h-48 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openBloxVibeStudio('Grass & Terrain Landscape')">
+                            <span class="text-5xl group-hover:scale-110 transition duration-300">⛰</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- COMMUNITIES & GAMES TAB -->
-                <div id="tab-games" class="hidden space-y-6">
-                    <h2 class="text-xl sm:text-2xl font-bold">Your Communities & Game Worlds</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                        <div class="bloxvibe-card p-4 rounded-xl space-y-3 border-blue-500/50">
-                            <div class="h-28 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">🚓</div>
-                            <h4 class="font-bold text-sm text-blue-300">Vancouver Police Department (VPD)</h4>
-                            <p class="text-xs text-gray-400">Department academy, custom video trailers, and officer dispatch zones.</p>
-                            <button onclick="openBloxVibeStudio('Vancouver Police Department')" class="w-full bloxvibe-blue py-2 rounded-lg text-xs font-bold text-white">Open VPD Studio</button>
-                        </div>
+                <!-- GAMES TAB -->
+                <div id="tab-games" class="hidden space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-bold">Templates & Game Worlds</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
                         <div class="bloxvibe-card p-4 rounded-xl space-y-3 border-emerald-500/50">
-                            <div class="h-28 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">🎖️</div>
-                            <h4 class="font-bold text-sm text-emerald-300">British Army / U.S. Army Base</h4>
-                            <p class="text-xs text-gray-400">Military base outpost, rank hierarchy structures, and secure asset transfer agreements.</p>
-                            <button onclick="openBloxVibeStudio('Military Base Outpost')" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2 rounded-lg text-xs font-bold text-white">Open Military Studio</button>
+                            <div class="h-28 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">⛰️</div>
+                            <h4 class="font-bold text-sm text-emerald-300">Grass & Terrain Landscape</h4>
+                            <button onclick="openBloxVibeStudio('Grass & Terrain Landscape')" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2 rounded-lg text-xs font-bold text-white">Open Studio (FREE 🪙)</button>
+                        </div>
+                        <div class="bloxvibe-card p-4 rounded-xl space-y-3 paid-marketplace-item">
+                            <div class="h-28 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">🏃</div>
+                            <h4 class="font-bold text-sm">Obstacle Course (Obby)</h4>
+                            <button onclick="openBloxVibeStudio('Obstacle Course (Obby)')" class="w-full bloxvibe-blue py-2 rounded-lg text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
                         <div class="bloxvibe-card p-4 rounded-xl space-y-3 paid-marketplace-item">
                             <div class="h-28 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">🏙</div>
                             <h4 class="font-bold text-sm">City Roleplay World</h4>
-                            <p class="text-xs text-gray-400">Urban city buildings and roleplay roads.</p>
                             <button onclick="openBloxVibeStudio('City Roleplay World')" class="w-full bloxvibe-blue py-2 rounded-lg text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
-                    </div>
-                </div>
-
-                <!-- CONTRACT & COMPASS REAL ESTATE HUB TAB -->
-                <div id="tab-realestate" class="hidden space-y-6">
-                    <div class="bg-gradient-to-r from-emerald-950 via-gray-900 to-gray-900 border border-emerald-500/40 p-5 sm:p-6 rounded-2xl space-y-4">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold">🧭</div>
-                            <div>
-                                <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold uppercase">Contract & Compass Hub</span>
-                                <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-1">Real Estate Wholesaling & Creative Financing Engine</h2>
-                            </div>
-                        </div>
-                        <p class="text-xs sm:text-sm text-gray-300">Manage wholesaling deals, review subject-to contracts, seller financing agreements, and lease options.</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bloxvibe-card p-5 rounded-xl space-y-3 border-emerald-500/30">
-                            <h3 class="font-bold text-sm text-emerald-400">📋 Wholesale Deal Analyzer</h3>
-                            <div class="space-y-2 text-xs">
-                                <input type="number" id="re-arv" placeholder="Estimated ARV ($)" class="w-full bg-gray-900 border border-gray-700 rounded p-2 text-white">
-                                <input type="number" id="re-repairs" placeholder="Estimated Repairs ($)" class="w-full bg-gray-900 border border-gray-700 rounded p-2 text-white">
-                                <button onclick="calculateMaxAllowableOffer()" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2 rounded font-bold text-white">Calculate MAO (70% Rule)</button>
-                                <p id="re-mao-result" class="text-amber-400 font-bold mt-2">Max Allowable Offer: $0</p>
-                            </div>
-                        </div>
-                        <div class="bloxvibe-card p-5 rounded-xl space-y-3 border-emerald-500/30">
-                            <h3 class="font-bold text-sm text-emerald-400">✍️ Assignment & Purchase Agreement Generator</h3>
-                            <div class="space-y-2 text-xs">
-                                <input type="text" id="re-buyer" placeholder="Assignee / Buyer Name" class="w-full bg-gray-900 border border-gray-700 rounded p-2 text-white">
-                                <input type="text" id="re-fee" placeholder="Assignment Fee ($)" class="w-full bg-gray-900 border border-gray-700 rounded p-2 text-white">
-                                <button onclick="generateAssignmentContract()" class="w-full bloxvibe-blue py-2 rounded font-bold text-white">Generate Contract Draft</button>
-                                <textarea id="re-contract-output" rows="3" readonly class="w-full bg-black border border-gray-700 rounded p-2 text-gray-300 font-mono text-[11px]" placeholder="Contract preview appears here..."></textarea>
-                            </div>
+                        <div class="bloxvibe-card p-4 rounded-xl space-y-3 paid-marketplace-item">
+                            <div class="h-28 bg-gray-800 rounded-lg flex items-center justify-center text-3xl">🎖</div>
+                            <h4 class="font-bold text-sm">Military Base / Outpost</h4>
+                            <button onclick="openBloxVibeStudio('Military Base Outpost')" class="w-full bloxvibe-blue py-2 rounded-lg text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
                     </div>
                 </div>
@@ -296,25 +265,30 @@
                 <!-- STUDIO & TEMPLATES TAB -->
                 <div id="tab-studio" class="hidden space-y-6">
                     <div>
-                        <h2 class="text-xl sm:text-2xl font-bold">Studio Engine & Community Template Launcher</h2>
-                        <p class="text-xs sm:text-sm text-gray-400">Full mobile touch support & live auto-save enabled.</p>
+                        <h2 class="text-xl sm:text-2xl font-bold">Studio Engine & Template World Launcher</h2>
+                        <p class="text-xs sm:text-sm text-gray-400">Grass & Terrain is 100% Free! Full mobile touch support & live auto-save enabled.</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bloxvibe-card p-5 rounded-xl space-y-3 border-blue-500/40">
-                            <h3 class="font-bold text-sm text-blue-400">🚓 Vancouver Police Department World</h3>
-                            <p class="text-xs text-gray-400">Police precinct spawn points, cruiser lots, and training academy assets.</p>
-                            <button onclick="openBloxVibeStudio('Vancouver Police Department')" class="w-full bloxvibe-blue py-2.5 rounded text-xs font-bold text-white">Open VPD Studio</button>
-                        </div>
                         <div class="bloxvibe-card p-5 rounded-xl space-y-3 border-emerald-500/40">
-                            <h3 class="font-bold text-sm text-emerald-400">🎖️ British Army / U.S. Army Outpost</h3>
-                            <p class="text-xs text-gray-400">Bunker walls, watchtowers, and military base defense spawn zones.</p>
-                            <button onclick="openBloxVibeStudio('Military Base Outpost')" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2.5 rounded text-xs font-bold text-white">Open Military Studio</button>
+                            <h3 class="font-bold text-sm text-emerald-400">⛰️ Grass & Terrain Landscape (FREE)</h3>
+                            <p class="text-xs text-gray-400">Equipped with BloxVibe Studio-style tools to raise mountains, sculpt hills, and add grass.</p>
+                            <button onclick="openBloxVibeStudio('Grass & Terrain Landscape')" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2.5 rounded text-xs font-bold text-white">Open Studio (FREE)</button>
                         </div>
                         <div class="bloxvibe-card p-5 rounded-xl space-y-3">
-                            <h3 class="font-bold text-sm text-purple-400">🏙 City Roleplay World</h3>
+                            <h3 class="font-bold text-sm text-blue-400">🏃 Obstacle Course (Obby)</h3>
+                            <p class="text-xs text-gray-400">Preloaded obstacle course platform template ready to edit or delete.</p>
+                            <button onclick="openBloxVibeStudio('Obstacle Course (Obby)')" class="w-full bloxvibe-blue py-2.5 rounded text-xs font-bold">Open Studio (250 🪙)</button>
+                        </div>
+                        <div class="bloxvibe-card p-5 rounded-xl space-y-3">
+                            <h3 class="font-bold text-sm text-purple-400">🏙️️ City Roleplay World</h3>
                             <p class="text-xs text-gray-400">Urban city buildings and roads for roleplay communities.</p>
                             <button onclick="openBloxVibeStudio('City Roleplay World')" class="w-full bloxvibe-blue py-2.5 rounded text-xs font-bold">Open Studio (250 🪙)</button>
+                        </div>
+                        <div class="bloxvibe-card p-5 rounded-xl space-y-3">
+                            <h3 class="font-bold text-sm text-red-400">🎖️ Military Base / Outpost</h3>
+                            <p class="text-xs text-gray-400">Bunker walls, watchtowers, and military defense spawn zones.</p>
+                            <button onclick="openBloxVibeStudio('Military Base Outpost')" class="w-full bloxvibe-blue py-2.5 rounded text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
                     </div>
                 </div>
@@ -323,8 +297,8 @@
                 <div id="tab-ads" class="hidden space-y-6">
                     <h2 class="text-xl sm:text-2xl font-bold">Ads & Gamepasses</h2>
                     <div class="bloxvibe-card p-5 rounded-xl space-y-3">
-                        <h3 class="font-bold text-sm text-blue-400">📢 Create Community Ad Campaign</h3>
-                        <p class="text-xs text-gray-400">Promote your Vancouver Police Department or British Army group across BloxVibe.</p>
+                        <h3 class="font-bold text-sm text-blue-400">📢 Create Game Ad Campaign</h3>
+                        <p class="text-xs text-gray-400">Promote your game across BloxVibe to attract players and grow your community.</p>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             <input type="text" id="ad-title" placeholder="Ad Campaign Title" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
                             <input type="number" id="ad-bid" placeholder="Bid Amount in Coins" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
@@ -338,7 +312,7 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <h2 class="text-xl sm:text-2xl font-bold text-red-400">Moderator & Session Exit Logs</h2>
-                            <p class="text-xs text-gray-400">Automatically records session exit events and staff coin actions.</p>
+                            <p class="text-xs text-gray-400">Automatically records session exit events and admin coin actions.</p>
                         </div>
                         <button onclick="clearSessionLogs()" class="bg-red-900/60 hover:bg-red-800 text-red-200 px-3 py-1.5 rounded text-xs font-bold border border-red-700">Clear Logs</button>
                     </div>
@@ -455,7 +429,7 @@
                 <button onclick="closeCreatorUpgradeModal()" class="text-gray-400 hover:text-white text-sm">✕</button>
             </div>
             <div class="space-y-3 text-xs">
-                <p class="text-gray-300">Enter your card details to unlock BloxVibe Studio, AI generation tools, and community templates.</p>
+                <p class="text-gray-300">Enter your card details to unlock BloxVibe Studio, AI generation tools, and paid marketplace templates.</p>
                 <div class="space-y-1">
                     <label class="text-gray-400">Cardholder Name</label>
                     <input type="text" id="upgrade-cardholder" placeholder="John Doe" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-white">
@@ -483,7 +457,7 @@
     <div id="bloxvibe-studio-client" class="fixed inset-0 studio-dark z-50 hidden flex flex-col select-none">
         <div class="studio-ribbon px-3 py-2 flex flex-wrap items-center justify-between text-xs text-gray-300 flex-shrink-0 gap-2">
             <div class="flex items-center space-x-2 flex-wrap gap-1">
-                <div class="flex items-center space-x-2 bg-blue-600 px-3 py-1.5 rounded font-bold text-white">
+                <div class="flex items-center space-x-2 bg-red-600 px-3 py-1.5 rounded font-bold text-white">
                     <span>🛠</span> <span id="studio-world-title">BloxVibe Studio</span>
                 </div>
                 <div class="flex space-x-1 bg-gray-900 p-1 rounded border border-gray-700">
@@ -491,8 +465,14 @@
                     <button onclick="studioSpawnPart('Wedge')" class="px-2.5 py-1 rounded hover:bg-gray-800">📐 Wedge</button>
                     <button onclick="deleteSelectedObject()" class="px-2.5 py-1 rounded bg-red-900/60 text-red-300 hover:bg-red-800">Delete</button>
                 </div>
+                <div id="terrain-tools-ribbon" class="hidden flex space-x-1 bg-emerald-950/60 border border-emerald-500/40 p-1 rounded">
+                    <button onclick="terrainAction('raise')" class="px-2 py-1 rounded bg-emerald-700 text-white font-bold">⛰️ Raise</button>
+                    <button onclick="terrainAction('hills')" class="px-2 py-1 rounded bg-emerald-800 text-white">🌄 Hills</button>
+                    <button onclick="terrainAction('flatten')" class="px-2 py-1 rounded bg-gray-800 text-white">🟩 Flat</button>
+                </div>
             </div>
             
+            <!-- MOBILE TOGGLE BUTTONS FOR SIDE PANELS -->
             <div class="flex items-center space-x-2">
                 <button onclick="toggleStudioPanel('explorer')" class="bg-gray-800 hover:bg-gray-700 px-2.5 py-1.5 rounded border border-gray-700 text-xs font-bold text-blue-400">📁 Explorer</button>
                 <button onclick="toggleStudioPanel('ai')" class="bg-gray-800 hover:bg-gray-700 px-2.5 py-1.5 rounded border border-gray-700 text-xs font-bold text-purple-400">✨ AI Assistant</button>
@@ -523,7 +503,7 @@
                 </div>
                 <div id="ai-chat-history" class="p-3 space-y-2 overflow-y-auto flex-1 font-mono text-[11px]">
                     <div class="bg-purple-950/40 border border-purple-500/30 p-2.5 rounded text-purple-200">
-                        <strong>Studio AI:</strong> Ask me to generate scripts or build models for your Vancouver Police or Military base!
+                        <strong>Studio AI:</strong> Ask me to generate scripts or build models! (e.g., "Create a neon obstacle platform")
                     </div>
                 </div>
                 <div class="p-3 border-t border-gray-800 space-y-2 bg-gray-900/50">
@@ -710,11 +690,11 @@
                 return;
             }
 
-            ['home', 'games', 'realestate', 'store', 'studio', 'ads', 'moderation', 'ownership'].forEach(t => {
+            ['home', 'games', 'store', 'studio', 'ads', 'moderation', 'ownership'].forEach(t => {
                 const el = document.getElementById(`tab-${t}`);
                 if(el) el.classList.add('hidden');
                 const nav = document.getElementById(`nav-${t}`);
-                if(nav && t !== 'moderation' && t !== 'ownership' && t !== 'realestate') {
+                if(nav && t !== 'moderation' && t !== 'ownership') {
                     nav.classList.remove('bg-gray-800', 'text-white');
                     nav.classList.add('text-gray-400');
                 }
@@ -722,7 +702,7 @@
             const target = document.getElementById(`tab-${tabName}`);
             if(target) target.classList.remove('hidden');
             const activeNav = document.getElementById(`nav-${tabName}`);
-            if(activeNav && tabName !== 'moderation' && tabName !== 'ownership' && tabName !== 'realestate') {
+            if(activeNav && tabName !== 'moderation' && tabName !== 'ownership') {
                 activeNav.classList.add('bg-gray-800', 'text-white');
                 activeNav.classList.remove('text-gray-400');
             }
@@ -744,7 +724,7 @@
             closeCreatorUpgradeModal();
             applyUserSession(currentUser);
             logSessionEvent(user.username, 'Creator Upgrade', 'Added card details and upgraded to Creator tier.');
-            alert("✨ Success! You are now a Creator. BloxVibe Studio and community templates are unlocked.");
+            alert("✨ Success! You are now a Creator. BloxVibe Studio and paid marketplace templates are unlocked.");
         }
 
         function triggerAdminBypassCoins() {
@@ -804,21 +784,6 @@
             logSessionEvent(user.username, 'Real Money Purchase', `Purchased ${pendingPurchase.amount} coins for $${pendingPurchase.price}.`);
             closeCheckoutModal();
             alert(`💳 Payment verified! Credited ${pendingPurchase.amount.toLocaleString()} coins.`);
-        }
-
-        function calculateMaxAllowableOffer() {
-            const arv = parseFloat(document.getElementById('re-arv').value);
-            const repairs = parseFloat(document.getElementById('re-repairs').value);
-            if(isNaN(arv) || isNaN(repairs)) { alert("Enter valid numbers for ARV and repairs."); return; }
-            const mao = (arv * 0.70) - repairs;
-            document.getElementById('re-mao-result').textContent = `Max Allowable Offer (MAO): $${mao.toLocaleString()}`;
-        }
-
-        function generateAssignmentContract() {
-            const buyer = document.getElementById('re-buyer').value.trim() || '[Buyer Name]';
-            const fee = document.getElementById('re-fee').value.trim() || '[Assignment Fee]';
-            const text = `CONTRACT & COMPASS - WHOLESALE ASSIGNMENT AGREEMENT\nAssignor: GrandEmperor\nAssignee: ${buyer}\nAssignment Fee: $${fee}\nGoverning Law: United States / Missouri\nTerms: All earnest money deposit transferred upon execution.`;
-            document.getElementById('re-contract-output').value = text;
         }
 
         function publishAdCampaign() {
@@ -905,6 +870,7 @@
         let studioScene, studioCamera, studioRenderer;
         let editableObjects = [];
         let selectedObject = null;
+        let terrainMesh = null;
         let currentTemplateName = '';
 
         let isPointerActive = false;
@@ -919,9 +885,28 @@
                 return;
             }
 
+            const isFree = templateName.toLowerCase().includes('grass') || templateName.toLowerCase().includes('terrain');
+            const studioFee = isFree ? 0 : 250;
+
+            if (user.coins < studioFee && user.tier < 4 && !isFree) {
+                alert(`❌ Opening "${templateName}" costs 250 coins!`);
+                switchTab('store');
+                return;
+            }
+
+            if (!isFree && user.tier < 4) {
+                user.coins -= studioFee;
+                saveDB();
+                document.getElementById('coin-display').textContent = user.coins.toLocaleString();
+            }
+
             document.getElementById('bloxvibe-studio-client').classList.remove('hidden');
-            document.getElementById('studio-world-title').textContent = `Template: ${templateName}`;
+            document.getElementById('studio-world-title').textContent = isFree ? `Template: ${templateName} (FREE)` : `Template: ${templateName}`;
             currentTemplateName = templateName;
+
+            const terrainRibbon = document.getElementById('terrain-tools-ribbon');
+            if (isFree) terrainRibbon.classList.remove('hidden');
+            else terrainRibbon.classList.add('hidden');
 
             setTimeout(() => {
                 initStudio3D(templateName);
@@ -937,7 +922,7 @@
         function closeBloxVibeStudio() {
             document.getElementById('bloxvibe-studio-client').classList.add('hidden');
             logSessionEvent(usersDB[currentUser].username, 'Studio Auto-Saved', `Saved changes for template: ${currentTemplateName}`);
-            alert("🛠️ All community edits and template movements automatically saved!");
+            alert("🛠️ All edits and template movements automatically saved!");
         }
 
         function toggleStudioPanel(panelType) {
@@ -969,6 +954,19 @@
             updateExplorerList();
         }
 
+        function terrainAction(action) {
+            if (!terrainMesh) return;
+            const pos = terrainMesh.geometry.attributes.position;
+            for (let i = 0; i < pos.count; i++) {
+                let vx = pos.getX(i), vz = pos.getZ(i);
+                if (action === 'raise') pos.setY(i, Math.max(0, Math.sin(vx*0.25)*Math.cos(vz*0.25)*5.0));
+                else if (action === 'hills') pos.setY(i, Math.sin(vx*0.4)*Math.cos(vz*0.4)*2.0);
+                else if (action === 'flatten') pos.setY(i, 0);
+            }
+            pos.needsUpdate = true;
+            terrainMesh.geometry.computeVertexNormals();
+        }
+
         function submitStudioAI() {
             const promptInput = document.getElementById('ai-prompt-input');
             const query = promptInput.value.trim();
@@ -980,7 +978,7 @@
 
             setTimeout(() => {
                 studioSpawnPart('Block');
-                history.innerHTML += `<div class="bg-purple-950/40 border border-purple-500/30 p-2 rounded text-purple-200"><strong>Studio AI:</strong> ✨ Generated and spawned custom community prop!</div>`;
+                history.innerHTML += `<div class="bg-purple-950/40 border border-purple-500/30 p-2 rounded text-purple-200"><strong>Studio AI:</strong> ✨ Generated and spawned new part successfully!</div>`;
                 history.scrollTop = history.scrollHeight;
             }, 600);
         }
@@ -1008,33 +1006,36 @@
 
             const baseGeo = new THREE.PlaneGeometry(60, 60, 40, 40);
             baseGeo.rotateX(-Math.PI / 2);
-            let terrainMesh = new THREE.Mesh(baseGeo, new THREE.MeshStandardMaterial({ color: 0x1a202c, roughness: 0.8 }));
-            terrainMesh.name = "Baseplate";
+            terrainMesh = new THREE.Mesh(baseGeo, new THREE.MeshStandardMaterial({ color: 0x2e8b57, roughness: 0.8 }));
+            terrainMesh.name = "GrassTerrain";
             studioScene.add(terrainMesh);
             studioScene.add(new THREE.GridHelper(60, 60, 0x0074bd, 0x2b3240));
 
-            if (templateName.toLowerCase().includes('vancouver') || templateName.toLowerCase().includes('police')) {
-                let precinct = new THREE.Mesh(new THREE.BoxGeometry(10,5,8), new THREE.MeshStandardMaterial({color: 0x1e3a8a}));
-                precinct.position.set(0, 2.5, -5);
-                precinct.name = "VPD_PrecinctBuilding";
-                studioScene.add(precinct);
-                editableObjects.push(precinct);
-
-                let cruiser = new THREE.Mesh(new THREE.BoxGeometry(4,2,6), new THREE.MeshStandardMaterial({color: 0x0f172a}));
-                cruiser.position.set(6, 1, 4);
-                cruiser.name = "VPD_PoliceCruiser";
-                studioScene.add(cruiser);
-                editableObjects.push(cruiser);
-            } else if (templateName.toLowerCase().includes('military') || templateName.toLowerCase().includes('army')) {
-                let wall = new THREE.Mesh(new THREE.BoxGeometry(20,4,2), new THREE.MeshStandardMaterial({color: 0x276749}));
+            if (templateName.toLowerCase().includes('obby')) {
+                for(let i=0; i<6; i++) {
+                    let step = new THREE.Mesh(new THREE.BoxGeometry(4,0.6,4), new THREE.MeshStandardMaterial({color: i%2===0?0x0074bd:0xef4444}));
+                    step.position.set(0, i*1.5+0.5, -i*4);
+                    step.name = `ObbyPlatform_${i+1}`;
+                    studioScene.add(step);
+                    editableObjects.push(step);
+                }
+            } else if (templateName.toLowerCase().includes('city')) {
+                let bldg = new THREE.Mesh(new THREE.BoxGeometry(6,16,6), new THREE.MeshStandardMaterial({color: 0x4a5568}));
+                bldg.position.set(0, 8, -8);
+                bldg.name = "CitySkyscraper";
+                studioScene.add(bldg);
+                editableObjects.push(bldg);
+            } else if (templateName.toLowerCase().includes('military')) {
+                let wall = new THREE.Mesh(new THREE.BoxGeometry(18,4,2), new THREE.MeshStandardMaterial({color: 0x276749}));
                 wall.position.set(0, 2, -10);
-                wall.name = "MilitaryBunkerWall";
+                wall.name = "BunkerWall";
                 studioScene.add(wall);
                 editableObjects.push(wall);
             }
 
             updateExplorerList();
 
+            // MOUSE & TOUCH EVENT HANDLERS FOR CAMERA ORBIT & SELECTION
             function handleStart(clientX, clientY) {
                 isPointerActive = true;
                 lastX = clientX;
@@ -1055,10 +1056,12 @@
 
             function handleEnd() { isPointerActive = false; }
 
+            // Mouse Events
             container.addEventListener('mousedown', (e) => handleStart(e.clientX, e.clientY));
             window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
             window.addEventListener('mouseup', handleEnd);
 
+            // Touch Events (Mobile Support)
             container.addEventListener('touchstart', (e) => {
                 if (e.touches.length === 1) handleStart(e.touches[0].clientX, e.touches[0].clientY);
             }, { passive: true });
@@ -1075,6 +1078,7 @@
                 updateCameraOrbit();
             }, { passive: false });
 
+            // Raycasting for Selection (Click or Tap)
             const raycaster = new THREE.Raycaster();
             const mouse = new THREE.Vector2();
 
@@ -1109,7 +1113,7 @@
 
         function updateExplorerList() {
             const list = document.getElementById('explorer-objects');
-            list.innerHTML = `<p class="text-blue-400 font-bold">📁 Workspace</p><div class="pl-4 space-y-1"><p>📦 Baseplate</p>`;
+            list.innerHTML = `<p class="text-blue-400 font-bold">📁 Workspace</p><div class="pl-4 space-y-1"><p>📦 GrassTerrain</p>`;
             editableObjects.forEach(o => list.innerHTML += `<p>📦 ${o.name}</p>`);
             list.innerHTML += `</div>`;
         }
@@ -1121,4 +1125,4 @@
         }
     </script>
 </body>
-</html>
+                    </html>  
