@@ -125,7 +125,7 @@
                     <button onclick="switchTab('studio')" id="nav-studio" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
                         <span>🛠</span> <span>Studio & Templates</span>
                     </button>
-                    <!-- ADS TAB -->
+                    <!-- ADS & PASSES TAB (INCLUDING AD BUTTON & GAMEPASS BUTTON) -->
                     <button onclick="switchTab('ads')" id="nav-ads" class="flex-shrink-0 md:w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition">
                         <span>📢</span> <span>Ads & Passes</span>
                     </button>
@@ -234,9 +234,9 @@
                 <div id="tab-store" class="hidden space-y-6">
                     <div class="bg-gradient-to-r from-emerald-950 via-gray-900 to-blue-950 border border-emerald-500/30 p-5 sm:p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
                         <div class="space-y-2">
-                            <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Secure Bank Verified Checkout</span>
-                            <h2 class="text-xl sm:text-2xl font-extrabold text-white">Purchase Coins (Strict Funds Verification)</h2>
-                            <p class="text-xs text-gray-400">All card fields and bank account funds are verified. Payments route directly to the Owner's card.</p>
+                            <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Secure Company Card Routing</span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-white">Purchase Coins (Routes to BloxVibe Company Card)</h2>
+                            <p class="text-xs text-gray-400">All real-world funds from card purchases deposit securely into the Ownership-restricted BloxVibe Company Card.</p>
                         </div>
                         <div class="bg-black/40 border border-emerald-500/40 p-4 rounded-xl text-center flex-shrink-0 w-full md:w-auto">
                             <p class="text-xs text-gray-400 uppercase font-bold">Your Balance</p>
@@ -281,7 +281,7 @@
                             <button onclick="openBloxVibeStudio('Obstacle Course (Obby)')" class="w-full bloxvibe-blue py-2.5 rounded text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
                         <div class="bloxvibe-card p-5 rounded-xl space-y-3">
-                            <h3 class="font-bold text-sm text-purple-400">🏙️️ City Roleplay World</h3>
+                            <h3 class="font-bold text-sm text-purple-400">🏙 City Roleplay World</h3>
                             <p class="text-xs text-gray-400">Urban city buildings and roads for roleplay communities.</p>
                             <button onclick="openBloxVibeStudio('City Roleplay World')" class="w-full bloxvibe-blue py-2.5 rounded text-xs font-bold">Open Studio (250 🪙)</button>
                         </div>
@@ -293,16 +293,38 @@
                     </div>
                 </div>
 
-                <!-- ADS & PASSES TAB -->
+                <!-- ADS & PASSES TAB (AD BUTTON & GAMEPASS BUTTON) -->
                 <div id="tab-ads" class="hidden space-y-6">
-                    <h2 class="text-xl sm:text-2xl font-bold">Ads & Gamepasses</h2>
-                    <div class="bloxvibe-card p-5 rounded-xl space-y-3">
-                        <h3 class="font-bold text-sm text-blue-400">📢 Create Game Ad Campaign</h3>
-                        <p class="text-xs text-gray-400">Promote your game across BloxVibe to attract players and grow your community.</p>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                            <input type="text" id="ad-title" placeholder="Ad Campaign Title" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
-                            <input type="number" id="ad-bid" placeholder="Bid Amount in Coins" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
-                            <button onclick="publishAdCampaign()" class="bloxvibe-blue py-2 rounded text-xs font-bold text-white">Launch Campaign</button>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold">Ads & Gamepasses</h2>
+                        <p class="text-xs sm:text-sm text-gray-400">Promote your game or manage in-game gamepasses and perks.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- AD BUTTON SECTION -->
+                        <div class="bloxvibe-card p-5 rounded-xl space-y-3 border-blue-500/40">
+                            <h3 class="font-bold text-sm text-blue-400 flex items-center gap-2"><span>📢</span> Ad Campaign Manager</h3>
+                            <p class="text-xs text-gray-400">Promote your game across BloxVibe to attract players and grow your community.</p>
+                            <div class="space-y-2">
+                                <input type="text" id="ad-title" placeholder="Ad Campaign Title" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
+                                <input type="number" id="ad-bid" placeholder="Bid Amount in Coins" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
+                                <button onclick="publishAdCampaign()" class="w-full bloxvibe-blue py-2.5 rounded text-xs font-bold text-white shadow flex items-center justify-center gap-2">
+                                    <span>📢</span> Launch Ad Campaign Button
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- GAMEPASS BUTTON SECTION -->
+                        <div class="bloxvibe-card p-5 rounded-xl space-y-3 border-purple-500/40">
+                            <h3 class="font-bold text-sm text-purple-400 flex items-center gap-2"><span>🎟️</span> Gamepass & VIP Shop Manager</h3>
+                            <p class="text-xs text-gray-400">Create and configure gamepasses, VIP perks, and developer products for your players.</p>
+                            <div class="space-y-2">
+                                <input type="text" id="pass-name" placeholder="Gamepass Name (e.g. VIP Admin)" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
+                                <input type="number" id="pass-price" placeholder="Price in Coins" class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
+                                <button onclick="publishGamepass()" class="w-full bg-purple-700 hover:bg-purple-600 py-2.5 rounded text-xs font-bold text-white shadow flex items-center justify-center gap-2">
+                                    <span>🎟️</span> Add Gamepass Button
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -345,20 +367,20 @@
                     </div>
                 </div>
 
-                <!-- OWNERSHIP & ADMIN MANAGEMENT TAB -->
+                <!-- OWNERSHIP & COMPANY CARD MANAGEMENT TAB -->
                 <div id="tab-ownership" class="hidden space-y-6">
                     <div class="bg-gradient-to-r from-amber-950 via-gray-900 to-gray-900 border border-amber-500/40 p-5 rounded-2xl space-y-4">
                         <div>
-                            <span class="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-bold uppercase">GrandEmperor Control Center</span>
-                            <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-1">Owner Revenue Card: $<span id="owner-revenue-pool">0.00</span> USD</h2>
-                            <p class="text-xs text-gray-400">All real money checkout transactions route straight to this card.</p>
+                            <span class="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-bold uppercase">👑 Exclusive Ownership Access Only</span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-1">BloxVibe Company Card Balance: $<span id="company-card-balance">0.00</span> USD</h2>
+                            <p class="text-xs text-gray-400">All real-world card payments made by users for coin packages deposit directly here. Only Ownership can view or transfer from this company card.</p>
                         </div>
                         <div class="bg-black/60 border border-amber-500/40 p-4 rounded-xl space-y-3">
-                            <h4 class="font-bold text-sm text-amber-400">🏦 Transfer Owner Revenue to Personal Bank</h4>
+                            <h4 class="font-bold text-sm text-amber-400">🏦 Transfer BloxVibe Company Card Funds to Bank</h4>
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 <input type="text" id="owner-bank-name" placeholder="Bank Name (e.g., Chase)" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white">
                                 <input type="text" id="owner-routing-num" placeholder="Routing & Account Number" class="bg-gray-900 border border-gray-700 rounded px-3 py-2 text-xs text-white font-mono">
-                                <button onclick="transferOwnerRevenue()" class="bg-amber-600 hover:bg-amber-500 py-2 rounded text-xs font-bold text-white shadow">Transfer Revenue to Bank</button>
+                                <button onclick="transferCompanyCardFunds()" class="bg-amber-600 hover:bg-amber-500 py-2 rounded text-xs font-bold text-white shadow">Transfer Company Funds</button>
                             </div>
                         </div>
                     </div>
@@ -389,7 +411,7 @@
     <div id="checkout-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
         <div class="bloxvibe-card w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border border-gray-700">
             <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                <h3 class="font-bold text-sm text-emerald-400 flex items-center gap-2"><span>💳</span> Bank & Card Funds Verification</h3>
+                <h3 class="font-bold text-sm text-emerald-400 flex items-center gap-2"><span>💳</span> BloxVibe Secure Company Checkout</h3>
                 <button onclick="closeCheckoutModal()" class="text-gray-400 hover:text-white text-sm">✕</button>
             </div>
             <div class="space-y-3 text-xs">
@@ -416,7 +438,7 @@
                     <label class="text-amber-400 font-bold">Simulated Bank Account Funds Check ($ USD)</label>
                     <input type="number" id="chk-bank-funds" value="100.00" class="w-full bg-black border border-gray-700 rounded px-3 py-2 text-white font-mono" placeholder="Available Bank Balance">
                 </div>
-                <button onclick="processBankVerifiedPayment()" class="w-full bg-emerald-600 hover:bg-emerald-500 py-3 rounded-lg font-bold text-white shadow-lg mt-2">Verify Funds & Complete Purchase</button>
+                <button onclick="processBankVerifiedPayment()" class="w-full bg-emerald-600 hover:bg-emerald-500 py-3 rounded-lg font-bold text-white shadow-lg mt-2">Verify & Route to Company Card</button>
             </div>
         </div>
     </div>
@@ -519,7 +541,7 @@
         let currentUser = localStorage.getItem('blox_current_user') || null;
         let usersDB = JSON.parse(localStorage.getItem('blox_users_db') || '{}');
         let sessionLogs = JSON.parse(localStorage.getItem('blox_session_logs') || '[]');
-        let ownerRevenue = parseFloat(localStorage.getItem('blox_owner_revenue') || '0.00');
+        let companyCardBalance = parseFloat(localStorage.getItem('blox_company_card_balance') || '0.00');
         let pendingPurchase = { amount: 0, price: 0 };
 
         if (!usersDB['GrandEmperor']) {
@@ -541,7 +563,7 @@
 
         function saveDB() {
             localStorage.setItem('blox_users_db', JSON.stringify(usersDB));
-            localStorage.setItem('blox_owner_revenue', ownerRevenue.toFixed(2));
+            localStorage.setItem('blox_company_card_balance', companyCardBalance.toFixed(2));
             localStorage.setItem('blox_current_user', currentUser);
         }
 
@@ -775,15 +797,15 @@
             if (!cardholder || !cardnum || !exp || !cvv || isNaN(bankFunds)) { alert("❌ Please input all required card details."); return; }
             if (bankFunds < pendingPurchase.price) { alert(`❌ Insufficient funds in bank account.`); return; }
 
-            ownerRevenue += pendingPurchase.price;
+            companyCardBalance += pendingPurchase.price;
             const user = usersDB[currentUser];
             user.coins += pendingPurchase.amount;
             saveDB();
 
             document.getElementById('coin-display').textContent = user.coins.toLocaleString();
-            logSessionEvent(user.username, 'Real Money Purchase', `Purchased ${pendingPurchase.amount} coins for $${pendingPurchase.price}.`);
+            logSessionEvent(user.username, 'Real Money Purchase', `Purchased ${pendingPurchase.amount} coins for $${pendingPurchase.price} routed to BloxVibe Company Card.`);
             closeCheckoutModal();
-            alert(`💳 Payment verified! Credited ${pendingPurchase.amount.toLocaleString()} coins.`);
+            alert(`💳 Payment verified! $${pendingPurchase.price} routed directly to the BloxVibe Company Card. Credited ${pendingPurchase.amount.toLocaleString()} coins.`);
         }
 
         function publishAdCampaign() {
@@ -792,6 +814,14 @@
             if(!title || isNaN(bid) || bid <= 0) { alert("Enter valid ad title and bid."); return; }
             logSessionEvent(usersDB[currentUser].username, 'Game Ad Published', `Published ad campaign "${title}" with bid ${bid} coins.`);
             alert(`📢 Ad Campaign "${title}" successfully launched across BloxVibe!`);
+        }
+
+        function publishGamepass() {
+            const passName = document.getElementById('pass-name').value.trim();
+            const price = parseInt(document.getElementById('pass-price').value);
+            if (!passName || isNaN(price) || price <= 0) { alert("Enter valid gamepass name and price."); return; }
+            logSessionEvent(usersDB[currentUser].username, 'Gamepass Created', `Created gamepass "${passName}" priced at ${price} coins.`);
+            alert(`🎟️ Gamepass "${passName}" successfully created and added to store!`);
         }
 
         function renderSessionLogsTable() {
@@ -822,7 +852,7 @@
         }
 
         function renderOwnerDashboard() {
-            document.getElementById('owner-revenue-pool').textContent = ownerRevenue.toFixed(2);
+            document.getElementById('company-card-balance').textContent = companyCardBalance.toFixed(2);
             const tableBody = document.getElementById('owner-users-table');
             if (!tableBody) return;
             tableBody.innerHTML = '';
@@ -847,16 +877,16 @@
             });
         }
 
-        function transferOwnerRevenue() {
+        function transferCompanyCardFunds() {
             const bankName = document.getElementById('owner-bank-name').value.trim();
             const routingNum = document.getElementById('owner-routing-num').value.trim();
             if (!bankName || !routingNum) { alert("Please enter bank details."); return; }
-            if (ownerRevenue <= 0) { alert("No revenue available to transfer."); return; }
-            let transferredAmount = ownerRevenue;
-            ownerRevenue = 0.00;
+            if (companyCardBalance <= 0) { alert("No company card balance available to transfer."); return; }
+            let transferredAmount = companyCardBalance;
+            companyCardBalance = 0.00;
             saveDB();
             renderOwnerDashboard();
-            alert(`✅ Transferred $${transferredAmount.toFixed(2)} USD to your personal bank account (${bankName})!`);
+            alert(`✅ Transferred $${transferredAmount.toFixed(2)} USD from the BloxVibe Company Card to your personal bank (${bankName})!`);
         }
 
         function changeUserTier(emailKey, newTier) {
@@ -1125,4 +1155,4 @@
         }
     </script>
 </body>
-                    </html>  
+</html>
